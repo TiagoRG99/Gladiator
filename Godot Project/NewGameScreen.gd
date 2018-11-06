@@ -5,10 +5,10 @@ func _on_ColosseumButton_pressed():
 
 
 
+func _on_PotionHouseButton3_pressed():
+	get_tree().change_scene("res://Potion_House.tscn")
 
-func _on_ArmoryButton2_pressed():
-	get_tree().change_scene("res://Seller.tscn")
 
 
-func _on_BuildingButton3_pressed():
-	get_tree().change_scene("res://House_Inside.tscn")
+func _on_SellerHouseButton_pressed():
+	get_tree().change_scene("res://Seller_House.tscn")

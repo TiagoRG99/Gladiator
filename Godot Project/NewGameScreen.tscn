@@ -58,25 +58,24 @@ margin_right = -576.0
 margin_bottom = -527.0
 scene_to_load = "res://Colosseum.tscn"
 
-[node name="ArmoryButton2" parent="CenterContainer/TextureRect" index="1" instance=ExtResource( 3 )]
-
-margin_left = 663.0
-margin_top = 344.0
-margin_right = -358.0
-margin_bottom = -173.0
-scene_to_load = "res://Seller.tscn"
-
-[node name="BuildingButton3" parent="CenterContainer/TextureRect" index="2" instance=ExtResource( 3 )]
+[node name="PotionHouseButton3" parent="CenterContainer/TextureRect" index="1" instance=ExtResource( 3 )]
 
 margin_left = 214.0
 margin_top = 354.0
 margin_right = -828.0
 margin_bottom = -162.0
 
+[node name="SellerHouseButton" parent="CenterContainer/TextureRect" index="2" instance=ExtResource( 3 )]
+
+margin_left = 632.0
+margin_top = 365.0
+margin_right = -351.0
+margin_bottom = -140.0
+
 [connection signal="pressed" from="CenterContainer/TextureRect/ColosseumButton" to="." method="_on_ColosseumButton_pressed"]
 
-[connection signal="pressed" from="CenterContainer/TextureRect/ArmoryButton2" to="." method="_on_ArmoryButton2_pressed"]
+[connection signal="pressed" from="CenterContainer/TextureRect/PotionHouseButton3" to="." method="_on_PotionHouseButton3_pressed"]
 
-[connection signal="pressed" from="CenterContainer/TextureRect/BuildingButton3" to="." method="_on_BuildingButton3_pressed"]
+[connection signal="pressed" from="CenterContainer/TextureRect/SellerHouseButton" to="." method="_on_SellerHouseButton_pressed"]
 
 
