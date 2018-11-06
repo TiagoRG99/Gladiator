@@ -6,7 +6,7 @@
 [ext_resource path="res://Buttons/CreditsButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Animations/FadeIn.tscn" type="PackedScene" id=5]
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -60,6 +60,7 @@ margin_top = 461.0
 margin_right = 748.0
 margin_bottom = 535.0
 rect_min_size = Vector2( 226, 74 )
+_sections_unfolded = [ "Rect", "Size Flags", "custom_styles" ]
 scene_to_load = "res://CreditsScene.tscn"
 
 [node name="FadeIn" parent="." index="1" instance=ExtResource( 5 )]
