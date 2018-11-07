@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites PI/willy7[10137].png" type="Texture" id=2]
 [ext_resource path="res://Buttons/MenuButton.tscn" type="PackedScene" id=3]
 
-[node name="NewGame" type="Control"]
+[node name="NewGame" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -56,21 +56,26 @@ margin_left = 411.0
 margin_top = 8.0
 margin_right = -576.0
 margin_bottom = -527.0
+focus_mode = 0
+_sections_unfolded = [ "Focus", "Rect", "Size Flags" ]
 scene_to_load = "res://Colosseum.tscn"
 
 [node name="PotionHouseButton3" parent="CenterContainer/TextureRect" index="1" instance=ExtResource( 3 )]
 
-margin_left = 214.0
-margin_top = 354.0
-margin_right = -828.0
-margin_bottom = -162.0
+margin_left = 161.0
+margin_top = 368.0
+margin_right = -788.0
+margin_bottom = -126.0
+focus_mode = 0
 
 [node name="SellerHouseButton" parent="CenterContainer/TextureRect" index="2" instance=ExtResource( 3 )]
 
 margin_left = 632.0
-margin_top = 365.0
-margin_right = -351.0
-margin_bottom = -140.0
+margin_top = 291.0
+margin_right = -304.0
+margin_bottom = -125.0
+focus_mode = 0
+_sections_unfolded = [ "Focus", "Rect", "Size Flags" ]
 
 [connection signal="pressed" from="CenterContainer/TextureRect/ColosseumButton" to="." method="_on_ColosseumButton_pressed"]
 

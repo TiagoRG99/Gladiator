@@ -59,9 +59,10 @@ anchor_left = 1.0
 anchor_bottom = 0.0
 margin_left = -141.0
 margin_bottom = 66.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 5 )
 text = "Back"
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "Rect", "Size Flags", "custom_fonts" ]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 

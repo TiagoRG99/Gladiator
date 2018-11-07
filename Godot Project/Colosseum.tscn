@@ -5,7 +5,7 @@
 [ext_resource path="res://Buttons/MenuButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Montserrat_48.tres" type="DynamicFont" id=4]
 
-[node name="Colosseum" type="Control"]
+[node name="Colosseum" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -42,9 +42,10 @@ anchor_bottom = 0.5
 margin_left = -344.0
 margin_top = -73.5
 margin_bottom = 73.5
+focus_mode = 0
 custom_fonts/font = ExtResource( 4 )
 text = "Back"
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "Rect", "Size Flags", "custom_fonts" ]
 
 [connection signal="pressed" from="TextureRect/menuButton" to="." method="_on_menuButton_pressed"]
 
