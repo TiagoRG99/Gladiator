@@ -6,7 +6,7 @@
 [ext_resource path="res://Buttons/MenuButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Montserrat_48.tres" type="DynamicFont" id=5]
 
-[node name="Potion_House" type="Control"]
+[node name="Potion_House" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
