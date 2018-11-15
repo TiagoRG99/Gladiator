@@ -21,4 +21,4 @@ func _on_CreditsButton_pressed():
 
 
 func _on_NewGameButton_pressed():
-	get_tree().change_scene("res://NewGameScreen.tscn")
+	get_tree().change_scene("res://Selectchar.tscn")
