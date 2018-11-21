@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/5_ATTACK_007.png-f36a4577220fccb059eadf6bce846b84.stex"
+path="res://.import/5_ATTACK_007.png-cdc035224d204bea4be70b2471455fd0.stex"
 
 [deps]
 
-source_file="res://Sprites PI/Elf/_PNG/1/5_ATTACK_007.png"
-dest_files=[ "res://.import/5_ATTACK_007.png-f36a4577220fccb059eadf6bce846b84.stex" ]
+source_file="res://Sprites PI/Elf/_PNG/1_Light/5_ATTACK_007.png"
+dest_files=[ "res://.import/5_ATTACK_007.png-cdc035224d204bea4be70b2471455fd0.stex" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/6_HURT_004.png-14310e3a0181652c1d6a188f995b4d6b.stex"
+path="res://.import/6_HURT_004.png-e96acf579852c88aa913673ca8878450.stex"
 
 [deps]
 
-source_file="res://Sprites PI/Elf/_PNG/2/6_HURT_004.png"
-dest_files=[ "res://.import/6_HURT_004.png-14310e3a0181652c1d6a188f995b4d6b.stex" ]
+source_file="res://Sprites PI/Elf/_PNG/2_Light/6_HURT_004.png"
+dest_files=[ "res://.import/6_HURT_004.png-e96acf579852c88aa913673ca8878450.stex" ]
 
 [params]
 
