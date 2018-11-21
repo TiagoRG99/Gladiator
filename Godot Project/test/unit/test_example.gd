@@ -1,4 +1,7 @@
 extends "res://addons/gut/test.gd"
+
+var MyObj = load ("res://TitleScreen.gd")
+
 func before_each():
 	gut.p("ran setup", 2)
 
@@ -25,3 +28,7 @@ func test_assert_true_with_false():
 
 func test_something_else():
 	assert_true(false, "didn't work")
+	
+func test_assert():
+	var my_obj = MyObj.new()
+	assert_eq(4,MyObj.peidos(2,2), "Devia passar")
