@@ -5,7 +5,7 @@
 [ext_resource path="res://Buttons/MenuButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Montserrat_48.tres" type="DynamicFont" id=4]
 
-[node name="Control" type="Control" index="0"]
+[node name="Control" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -67,14 +67,14 @@ scene_to_load = "Null"
 
 [node name="Label" type="Label" parent="CenterContainer/TextureRect" index="1"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 189.0
-margin_top = 298.0
-margin_right = 1090.0
-margin_bottom = 421.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -385.0
+margin_top = -61.5
+margin_right = 385.0
+margin_bottom = 61.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
