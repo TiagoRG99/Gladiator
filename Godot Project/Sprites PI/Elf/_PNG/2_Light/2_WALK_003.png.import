@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2_WALK_003.png-140b825ea014825711e212f012296047.stex"
+path="res://.import/2_WALK_003.png-31d82fe8fc62983bac03659b18a18c16.stex"
 
 [deps]
 
-source_file="res://Sprites PI/Elf/_PNG/2/2_WALK_003.png"
-dest_files=[ "res://.import/2_WALK_003.png-140b825ea014825711e212f012296047.stex" ]
+source_file="res://Sprites PI/Elf/_PNG/2_Light/2_WALK_003.png"
+dest_files=[ "res://.import/2_WALK_003.png-31d82fe8fc62983bac03659b18a18c16.stex" ]
 
 [params]
 

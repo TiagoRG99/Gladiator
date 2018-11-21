@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1_IDLE_003.png-e0c886e8f8b1cc50ec7cf8007b947f5f.stex"
+path="res://.import/1_IDLE_003.png-065feaa5415e1f809fc8dc7bc98d10e3.stex"
 
 [deps]
 
-source_file="res://Sprites PI/Elf/_PNG/1/1_IDLE_003.png"
-dest_files=[ "res://.import/1_IDLE_003.png-e0c886e8f8b1cc50ec7cf8007b947f5f.stex" ]
+source_file="res://Sprites PI/Elf/_PNG/1_Light/1_IDLE_003.png"
+dest_files=[ "res://.import/1_IDLE_003.png-065feaa5415e1f809fc8dc7bc98d10e3.stex" ]
 
 [params]
 

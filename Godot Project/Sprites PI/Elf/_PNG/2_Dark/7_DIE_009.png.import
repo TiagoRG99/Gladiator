@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/7_DIE_009.png-e9199a3ed92769012c8718bef79bbd0a.stex"
+path="res://.import/7_DIE_009.png-731bc259ac85fa4c373d956a9ab3585d.stex"
 
 [deps]
 
-source_file="res://Sprites PI/Elf/_PNG/2/7_DIE_009.png"
-dest_files=[ "res://.import/7_DIE_009.png-e9199a3ed92769012c8718bef79bbd0a.stex" ]
+source_file="res://Sprites PI/Elf/_PNG/2_Dark/7_DIE_009.png"
+dest_files=[ "res://.import/7_DIE_009.png-731bc259ac85fa4c373d956a9ab3585d.stex" ]
 
 [params]
 
