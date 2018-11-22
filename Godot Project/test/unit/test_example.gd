@@ -31,4 +31,5 @@ func test_something_else():
 	
 func test_assert():
 	var my_obj = MyObj.new()
-	assert_eq(4,MyObj.peidos(2,2), "Devia passar")
+	var ad = MyObj.abcd(2,2)
+	assert_eq(4,ad, "Devia passar")

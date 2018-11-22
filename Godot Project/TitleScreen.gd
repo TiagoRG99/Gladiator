@@ -24,8 +24,8 @@ func _on_CreditsButton_pressed():
 func _on_NewGameButton_pressed():
 	get_tree().change_scene("res://Selectchar.tscn")
 	
-func peidos (x,y):
-	var peidos = x + y
-	return peidos
+func abcd (x,y):
+	var ab = x + y
+	return ab
 
 
