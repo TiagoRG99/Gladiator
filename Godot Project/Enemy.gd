@@ -9,5 +9,10 @@ func _ready():
 
 func _process(delta):
 	if health <= 0:
-		print ("dead")
-	pass
+		animation = "Die_Troll_1"
+		$Timer.start()
+		health = 1
+
+
+func _on_Timer_timeout():
+	get_tree().change_scene("res://NewGameScreen.tscn")

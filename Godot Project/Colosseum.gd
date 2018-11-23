@@ -31,23 +31,23 @@ func _on_Walk_Left_pressed():
 	if not $TextureRect/Player.position.x < 100:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x - 20
 	endTurn()
+	$Timer.start()
 
 
 func _on_Power_Attack_pressed():
 	$TextureRect/Player.animation = "AttackPower_Elf_1"
-	$TextureRect/Player.position.x = $TextureRect/Player.position.x + 5
 	if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
 		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 50
 	endTurn()
+	$Timer.start()
 
 
 func _on_Normal_Attack_pressed():
 	$TextureRect/Player.animation = "AttackNormal_Elf_1"
-	$TextureRect/Player.position.x = $TextureRect/Player.position.x + 5
 	if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
 		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 20
 	endTurn()
-
+	$Timer.start()
 
 
 func _on_Walk_Right_pressed():
@@ -55,9 +55,33 @@ func _on_Walk_Right_pressed():
 	if not $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 35:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x + 20
 	endTurn()
+	$Timer.start()
 
 
 
 func _on_Player_animation_finished():
 	if $TextureRect/Player.animation != "Idle_Elf_1":
 		$TextureRect/Player.animation = "Idle_Elf_1"
+
+
+
+func enemyTurn():
+	if $TextureRect/Enemy.animation != "Die_Troll_1":
+		if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x > 100:
+			$TextureRect/Enemy.animation = "Walk_Troll_1"
+			$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 20
+		else :
+			$TextureRect/Enemy.animation = "AttackNormal_Troll_1"
+			if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
+				$TextureRect/Player.health = $TextureRect/Player.health - 20
+		startTurn()
+
+
+
+func _on_Enemy_animation_finished():
+	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
+		$TextureRect/Enemy.animation = "Idle_Troll_1"
+
+
+func _on_Timer_timeout():
+	enemyTurn()
