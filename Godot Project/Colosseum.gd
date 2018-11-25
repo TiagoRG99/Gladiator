@@ -49,6 +49,15 @@ func _on_Normal_Attack_pressed():
 	endTurn()
 	$Timer.start()
 
+func _on_Player_animation_finished():
+	if $TextureRect/Player.animation != "Idle_Elf_1":
+		$TextureRect/Player.animation = "Idle_Elf_1"
+
+func _on_Enemy_animation_finished():
+	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
+		$TextureRect/Enemy.animation = "Idle_Troll_1"
+
+
 
 func _on_Walk_Right_pressed():
 	$TextureRect/Player.animation = "Walk_Elf_1"
@@ -56,14 +65,6 @@ func _on_Walk_Right_pressed():
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x + 20
 	endTurn()
 	$Timer.start()
-
-
-
-func _on_Player_animation_finished():
-	if $TextureRect/Player.animation != "Idle_Elf_1":
-		$TextureRect/Player.animation = "Idle_Elf_1"
-
-
 
 func enemyTurn():
 	if $TextureRect/Enemy.animation != "Die_Troll_1":
@@ -75,12 +76,12 @@ func enemyTurn():
 			if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
 				$TextureRect/Player.health = $TextureRect/Player.health - 20
 		startTurn()
-
-
-
-func _on_Enemy_animation_finished():
-	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
-		$TextureRect/Enemy.animation = "Idle_Troll_1"
+		
+func _return_newgame():
+	if $TextureRect/Player.health == 0 :
+		get_tree().change_scene("res://NewGameScreen.tscn")
+	if $TextureRect/Enemy.health == 0 :
+		get_tree().change_scene("res://NewGameScreen.tscn")
 
 
 func _on_Timer_timeout():
