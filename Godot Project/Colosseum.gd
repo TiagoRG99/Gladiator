@@ -50,7 +50,7 @@ func _on_Normal_Attack_pressed():
 	$Timer.start()
 
 func _on_Player_animation_finished():
-	if $TextureRect/Player.animation != "Idle_Elf_1":
+	if $TextureRect/Player.animation != "Idle_Elf_1" and $TextureRect/Player.animation != "Die_Elf_1":
 		$TextureRect/Player.animation = "Idle_Elf_1"
 
 func _on_Enemy_animation_finished():
