@@ -25,7 +25,9 @@ func _on_Button2_pressed():
 	
 func set_player():
 	$player.set_texture(load("res://Sprites PI/Selectchar/heroe_" + str(heroe_num) + ".png"))
+	var heroi = heroe_num
 	salvar_dados()
+	return heroi
 
 
 func _on_Select_pressed():
