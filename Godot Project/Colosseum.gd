@@ -1,5 +1,7 @@
 extends Control
 
+var board = load("res://Selectchar.gd").new()
+
 func _on_menuButton_pressed():
 	#get_tree().change_scene("res://NewGameScreen.tscn")
 	startTurn()
@@ -9,6 +11,9 @@ func _on_menuButton_pressed():
 func _ready():
 	$TextureRect/Enemy.health = 100
 	$TextureRect/Player.health = 100
+	var heroe = board.valor_char()
+	print (heroe)
+	
 
 
 func endTurn():
