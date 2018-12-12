@@ -11,7 +11,7 @@ func _on_menuButton_pressed():
 func _ready():
 	$TextureRect/Enemy.health = 100
 	$TextureRect/Player.health = 100
-	var hero = board.valor_char()
+	var heroe = board.valor_char()
 	
 
 
