@@ -1,8 +1,6 @@
 extends Control
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var board = load("res://Selectchar.gd").new()
 
 func _ready():
 	$Animation_Container.show()

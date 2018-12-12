@@ -33,6 +33,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer" index="0"]
 
@@ -50,6 +53,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 2 )
 stretch_mode = 0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Animation_Container" parent="." index="1" instance=ExtResource( 3 )]
 
