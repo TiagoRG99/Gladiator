@@ -16,12 +16,13 @@ func _ready():
 	$TextureRect/Player.health = 100
 	anim = character_animation()
 	$TextureRect/Player.animation = "Idle_"+anim
-	print(anim)
 
 
 func character_animation():
 	board.carregar_dados()
+	var attack = board.valor_atk()
 	var heroe = board.valor_char()
+	print(attack)
 	print (heroe)
 	if heroe == 1:
 		anim = "Elf_1"
