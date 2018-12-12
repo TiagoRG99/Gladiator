@@ -4,6 +4,30 @@ var heroe_num = 1
 var heroe_count = 3
 const ARQUIVO = "user://save.data"
 
+func _process(delta):
+	if heroe_num == 1:
+		$VBoxContainer/Class/LabelName.text = "Elf"
+		$VBoxContainer/Class2/LabelAttack.text = "2"
+		$VBoxContainer/Class3/LabelAgility.text = "3"
+		$VBoxContainer/Class4/LabelStamina.text = "1"
+		$VBoxContainer/Class5/LabelHealth.text = "2"
+		$VBoxContainer/Class6/LabelDefence.text = "1"
+	elif heroe_num == 2:
+		$VBoxContainer/Class/LabelName.text = "Knight"
+		$VBoxContainer/Class2/LabelAttack.text = "3"
+		$VBoxContainer/Class3/LabelAgility.text = "1"
+		$VBoxContainer/Class4/LabelStamina.text = "1"
+		$VBoxContainer/Class5/LabelHealth.text = "2"
+		$VBoxContainer/Class6/LabelDefence.text = "2"
+	elif heroe_num == 3:
+		$VBoxContainer/Class/LabelName.text = "W Warrior"
+		$VBoxContainer/Class2/LabelAttack.text = "2"
+		$VBoxContainer/Class3/LabelAgility.text = "2"
+		$VBoxContainer/Class4/LabelStamina.text = "2"
+		$VBoxContainer/Class5/LabelHealth.text = "1"
+		$VBoxContainer/Class6/LabelDefence.text = "2"
+
+
 func _ready():
 	carregar_dados()
 	$player.set_texture(load("res://Sprites PI/Selectchar/heroe_" + str(heroe_num) + ".png"))

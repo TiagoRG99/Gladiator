@@ -2,6 +2,9 @@ extends Control
 
 var board = load("res://Selectchar.gd").new()
 
+var anim
+
+
 func _on_menuButton_pressed():
 	#get_tree().change_scene("res://NewGameScreen.tscn")
 	startTurn()
@@ -11,8 +14,31 @@ func _on_menuButton_pressed():
 func _ready():
 	$TextureRect/Enemy.health = 100
 	$TextureRect/Player.health = 100
+	anim = character_animation()
+	$TextureRect/Player.animation = "Idle_"+anim
+	print(anim)
+
+
+func character_animation():
+	board.carregar_dados()
 	var heroe = board.valor_char()
-	
+	print (heroe)
+	if heroe == 1:
+		anim = "Elf_1"
+	elif heroe == 2:
+		anim = "Knight_1"
+	elif heroe == 3:
+		anim = "WomanWarrior_1"
+	elif heroe == 10:
+		anim = "Elf_2"
+	elif heroe == 20:
+		anim = "Knight_2"
+	elif heroe == 200:
+		anim = "Knight_3"
+	elif heroe == 30:
+		anim = "WomanWarrior_2"
+	return anim
+
 
 
 func endTurn():
@@ -29,7 +55,7 @@ func startTurn():
 
 
 func _on_Walk_Left_pressed():
-	$TextureRect/Player.animation = "Walk_Elf_1"
+	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Player.position.x < 100:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x - 20
 	endTurn()
@@ -37,7 +63,7 @@ func _on_Walk_Left_pressed():
 
 
 func _on_Power_Attack_pressed():
-	$TextureRect/Player.animation = "AttackPower_Elf_1"
+	$TextureRect/Player.animation = "AttackPower_"+anim
 	if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
 		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 50
 	endTurn()
@@ -45,15 +71,15 @@ func _on_Power_Attack_pressed():
 
 
 func _on_Normal_Attack_pressed():
-	$TextureRect/Player.animation = "AttackNormal_Elf_1"
+	$TextureRect/Player.animation = "AttackNormal_"+anim
 	if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
 		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 20
 	endTurn()
 	$Timer.start()
 
 func _on_Player_animation_finished():
-	if $TextureRect/Player.animation != "Idle_Elf_1" and $TextureRect/Player.animation != "Die_Elf_1":
-		$TextureRect/Player.animation = "Idle_Elf_1"
+	if $TextureRect/Player.animation != "Idle_"+anim and $TextureRect/Player.animation != "Die_"+anim:
+		$TextureRect/Player.animation = "Idle_"+anim
 
 func _on_Enemy_animation_finished():
 	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
@@ -62,7 +88,7 @@ func _on_Enemy_animation_finished():
 
 
 func _on_Walk_Right_pressed():
-	$TextureRect/Player.animation = "Walk_Elf_1"
+	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 35:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x + 20
 	endTurn()
