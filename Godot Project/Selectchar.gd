@@ -43,7 +43,6 @@ func _process(delta):
 
 
 func _ready():
-
 	$player.set_texture(load("res://Sprites PI/Selectchar/heroe_" + str(heroe_num) + ".png"))
 	health_potion_small = 0
 	health_potion_mid = 0
@@ -51,7 +50,7 @@ func _ready():
 	stamina_potion_small = 0
 	stamina_potion_mid = 0
 	stamina_potion_big = 0
-	gold=0
+	gold = 0
 	check = 0
 	salvar_dados()
 

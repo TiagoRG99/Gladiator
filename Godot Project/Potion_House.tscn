@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Potion_House.gd" type="Script" id=1]
 [ext_resource path="res://Sprites PI/House_Background.png" type="Texture" id=2]
@@ -12,13 +12,16 @@
 [ext_resource path="res://Sprites PI/Potions/potionGreen_mid.png" type="Texture" id=10]
 [ext_resource path="res://Sprites PI/Potions/potionGreen_big.png" type="Texture" id=11]
 [ext_resource path="res://Dialog.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites PI/Accessories/coin.png" type="Texture" id=13]
 
-[node name="Potion_House" type="Control"]
+[node name="Potion_House" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -75,7 +78,7 @@ margin_bottom = 66.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 5 )
 text = "Back"
-_sections_unfolded = [ "Focus", "Size Flags" ]
+_sections_unfolded = [ "Focus", "Rect", "Size Flags" ]
 
 [node name="HealthPotionSmall" type="Button" parent="." index="3"]
 
@@ -83,10 +86,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 710.0
-margin_top = 317.0
-margin_right = 762.0
-margin_bottom = 396.0
+margin_left = 707.0
+margin_top = 315.0
+margin_right = 759.0
+margin_bottom = 402.0
 rect_rotation = 0.581336
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -100,13 +103,19 @@ shortcut = null
 group = null
 flat = true
 align = 1
-_sections_unfolded = [ "Size Flags", "Visibility" ]
+_sections_unfolded = [ "Margin", "Size Flags", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="HealthPotionSmall" index="0"]
 
 position = Vector2( 25.9886, 42.9757 )
 rotation = 0.667603
 texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="HealthPotionMid" type="Button" parent="." index="4"]
 
@@ -114,11 +123,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 808.0
-margin_top = 306.0
-margin_right = 870.0
-margin_bottom = 403.0
-rect_rotation = -0.431774
+margin_left = 811.0
+margin_top = 304.0
+margin_right = 873.0
+margin_bottom = 402.0
+rect_rotation = -1.28513
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -131,13 +140,16 @@ shortcut = null
 group = null
 flat = true
 align = 1
-_sections_unfolded = [ "Focus", "Size Flags" ]
+_sections_unfolded = [ "Anchor", "Focus", "Margin", "Size Flags" ]
 
 [node name="Sprite" type="Sprite" parent="HealthPotionMid" index="0"]
 
 position = Vector2( 30.3832, 48.8307 )
 rotation = 0.705632
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="HealthPotionBig" type="Button" parent="." index="5"]
 
@@ -149,7 +161,7 @@ margin_left = 929.0
 margin_top = 289.0
 margin_right = 1006.0
 margin_bottom = 402.0
-rect_rotation = 0.0316556
+rect_rotation = 1.20887
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -162,11 +174,14 @@ shortcut = null
 group = null
 flat = true
 align = 1
-_sections_unfolded = [ "Focus" ]
+_sections_unfolded = [ "Focus", "Margin" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="HealthPotionBig" index="0"]
 
-position = Vector2( 38.1675, 54.8258 )
+position = Vector2( 27.6078, 54.5412 )
 rotation = 0.645873
 texture = ExtResource( 8 )
 
@@ -179,7 +194,7 @@ anchor_bottom = 0.0
 margin_left = 361.0
 margin_top = 325.0
 margin_right = 418.0
-margin_bottom = 407.0
+margin_bottom = 402.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -192,7 +207,10 @@ shortcut = null
 group = null
 flat = true
 align = 1
-_sections_unfolded = [ "Focus" ]
+_sections_unfolded = [ "Focus", "Margin" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="StaminaPotionSmall" index="0"]
 
@@ -223,7 +241,7 @@ shortcut = null
 group = null
 flat = true
 align = 1
-_sections_unfolded = [ "Focus" ]
+_sections_unfolded = [ "Focus", "Margin" ]
 
 [node name="Sprite" type="Sprite" parent="StaminaPotionMid" index="0"]
 
@@ -240,7 +258,7 @@ anchor_bottom = 0.0
 margin_left = 181.0
 margin_top = 299.0
 margin_right = 253.0
-margin_bottom = 401.0
+margin_bottom = 402.0
 rect_rotation = -1.16673
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -254,7 +272,7 @@ shortcut = null
 group = null
 flat = true
 align = 1
-_sections_unfolded = [ "Focus" ]
+_sections_unfolded = [ "Focus", "Margin" ]
 
 [node name="Sprite" type="Sprite" parent="StaminaPotionBig" index="0"]
 
@@ -318,6 +336,40 @@ group = null
 text = "No"
 flat = false
 align = 1
+
+[node name="Gold" type="Label" parent="." index="12"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = 17.0
+margin_right = 154.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Rect", "Size Flags", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="coin" type="Sprite" parent="Gold" index="0"]
+
+position = Vector2( 161.667, 25.8174 )
+rotation = -0.0203633
+scale = Vector2( 1.1197, 1.1197 )
+texture = ExtResource( 13 )
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 

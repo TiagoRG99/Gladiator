@@ -56,9 +56,7 @@ func _on_StaminaPotionMid_pressed():
 func _on_StaminaPotionBig_pressed():
 	dialog()
 	check = 6
-
-
-
+	
 func _on_Yes_pressed():
 	$Polygon2D.visible = false
 	$Yes.visible = false

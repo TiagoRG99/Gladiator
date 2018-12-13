@@ -11,6 +11,9 @@ func _ready():
 	#print(board.health_potion_small)
 	print(board.gold)
 	print (board.check)
+	 
+func _process(delta):
+	$Gold.text = str(board.gold)
 	
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://NewGameScreen.tscn")
@@ -70,30 +73,32 @@ func _on_Yes_pressed():
 	$StaminaPotionMid.visible = true
 	$StaminaPotionBig.visible = true
 	
-	if board.check == 1:
+	if board.check == 1 && board.gold >= 20 :
 		board.health_potion_small+=1
 		board.gold-=20
 		board.salvar_dados()
-	if board.check == 2:
+	if board.check == 2 && board.gold >= 20 :
 		board.health_potion_mid+=1
 		board.gold-=20
 		board.salvar_dados()
-	if board.check == 3:
+	if board.check == 3 && board.gold >= 20 :
 		board.health_potion_big+=1
 		board.gold-=20
 		board.salvar_dados()
-	if board.check == 4:
+	if board.check == 4 && board.gold >= 20:
 		board.stamina_potion_small+=1
 		board.gold-=20
 		board.salvar_dados()
-	if board.check == 5:
+	if board.check == 5 && board.gold >= 20:
 		board.stamina_potion_mid+=1
 		board.gold-=20
 		board.salvar_dados()
-	if board.check == 6:
+	if board.check == 6 && board.gold >= 20:
 		board.stamina_potion_big+=1
 		board.gold-=20
 		board.salvar_dados()
+	if board.gold < 20 :
+		print ("não tens guita!")
 	
 func _on_No_pressed():
 	$Polygon2D.visible = false

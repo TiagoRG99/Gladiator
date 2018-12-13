@@ -5,7 +5,7 @@
 [ext_resource path="res://Animations/Animation_Container.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Buttons/MenuButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Montserrat_48.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Dialog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://RichTextLabel2.gd" type="Script" id=6]
 
 [node name="Seller" type="Control"]
 
@@ -225,10 +225,58 @@ text = "StaminaPotionBig"
 flat = false
 align = 1
 
-[node name="Polygon2D" parent="." index="9" instance=ExtResource( 6 )]
+[node name="Polygon2D" type="Polygon2D" parent="." index="9"]
 
 visible = false
-_sections_unfolded = [ "Transform", "Visibility" ]
+position = Vector2( 55.5186, 0 )
+polygon = PoolVector2Array( 91.9521, 560.247, 91.9521, 668.809, 1144.7, 668.945, 1143.59, 560.357 )
+uv = PoolVector2Array(  )
+color = Color( 0.410156, 0.408554, 0.408554, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 113.0
+margin_top = 577.0
+margin_right = 1125.0
+margin_bottom = 652.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="Polygon2D" index="1"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = false
+autostart = false
 
 [node name="Yes" type="Button" parent="." index="10"]
 
@@ -297,6 +345,8 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="pressed" from="StaminaPotionMid" to="." method="_on_StaminaPotionMid_pressed"]
 
 [connection signal="pressed" from="StaminaPotionBig" to="." method="_on_StaminaPotionBig_pressed"]
+
+[connection signal="timeout" from="Polygon2D/Timer" to="Polygon2D/RichTextLabel" method="_on_Timer_timeout"]
 
 [connection signal="pressed" from="Yes" to="." method="_on_Yes_pressed"]
 

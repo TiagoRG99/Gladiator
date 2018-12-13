@@ -2,7 +2,7 @@
 
 [ext_resource path="res://RichTextLabel.gd" type="Script" id=1]
 
-[node name="Polygon2D" type="Polygon2D" index="0"]
+[node name="Polygon2D" type="Polygon2D"]
 
 polygon = PoolVector2Array( 1171.97, 550.188, 1171.97, 673.18, 99.6348, 673.328, 99.6348, 550.337 )
 uv = PoolVector2Array(  )
