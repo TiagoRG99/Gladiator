@@ -2,9 +2,9 @@
 
 [ext_resource path="res://RichTextLabel.gd" type="Script" id=1]
 
-[node name="Polygon2D" type="Polygon2D"]
+[node name="Polygon2D" type="Polygon2D" index="0"]
 
-polygon = PoolVector2Array( 1179.97, 551.445, 1178.86, 673.328, 99.6348, 673.328, 99.6348, 550.337 )
+polygon = PoolVector2Array( 1171.97, 550.188, 1171.97, 673.18, 99.6348, 673.328, 99.6348, 550.337 )
 uv = PoolVector2Array(  )
 color = Color( 0.21875, 0.213623, 0.213623, 1 )
 vertex_colors = PoolColorArray(  )
@@ -16,6 +16,7 @@ texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." index="0"]
 

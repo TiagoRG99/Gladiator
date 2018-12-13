@@ -7,7 +7,7 @@
 [ext_resource path="res://Montserrat_48.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Dialog.tscn" type="PackedScene" id=6]
 
-[node name="Seller" type="Control" index="0"]
+[node name="Seller" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -228,7 +228,7 @@ align = 1
 [node name="Polygon2D" parent="." index="9" instance=ExtResource( 6 )]
 
 visible = false
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Yes" type="Button" parent="." index="10"]
 
