@@ -11,7 +11,7 @@
 [ext_resource path="res://Sprites PI/Potions/potionGreen.png" type="Texture" id=9]
 [ext_resource path="res://Sprites PI/Potions/potionGreen_mid.png" type="Texture" id=10]
 [ext_resource path="res://Sprites PI/Potions/potionGreen_big.png" type="Texture" id=11]
-[ext_resource path="res://Dialog.tscn" type="PackedScene" id=12]
+[ext_resource path="res://RichTextLabel.gd" type="Script" id=12]
 [ext_resource path="res://Sprites PI/Accessories/coin.png" type="Texture" id=13]
 
 [node name="Potion_House" type="Control" index="0"]
@@ -280,10 +280,58 @@ position = Vector2( 34.4615, 47.8011 )
 rotation = 0.695461
 texture = ExtResource( 11 )
 
-[node name="Polygon2D" parent="." index="9" instance=ExtResource( 12 )]
+[node name="Polygon2D" type="Polygon2D" parent="." index="9"]
 
 visible = false
-position = Vector2( 10.5627, 8.77539 )
+polygon = PoolVector2Array( 87.4612, 565.24, 87.4612, 677.142, 1194.79, 677.142, 1195, 566 )
+uv = PoolVector2Array(  )
+color = Color( 0.207031, 0.207031, 0.207031, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 106.0
+margin_top = 577.0
+margin_right = 1173.0
+margin_bottom = 665.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 12 )
+
+[node name="Timer" type="Timer" parent="Polygon2D" index="1"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = false
+autostart = true
 
 [node name="Yes" type="Button" parent="." index="10"]
 
@@ -384,6 +432,8 @@ texture = ExtResource( 13 )
 [connection signal="pressed" from="StaminaPotionMid" to="." method="_on_StaminaPotionMid_pressed"]
 
 [connection signal="pressed" from="StaminaPotionBig" to="." method="_on_StaminaPotionBig_pressed"]
+
+[connection signal="timeout" from="Polygon2D/Timer" to="Polygon2D/RichTextLabel" method="_on_Timer_timeout"]
 
 [connection signal="pressed" from="Yes" to="." method="_on_Yes_pressed"]
 

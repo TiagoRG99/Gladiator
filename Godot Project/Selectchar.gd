@@ -14,7 +14,7 @@ var stamina_potion_small = 0
 var stamina_potion_mid = 0
 var stamina_potion_big = 0
 var gold = 0
-var check
+var check 
 
 const ARQUIVO = "user://save.data"
 
@@ -158,7 +158,7 @@ func valor_sta_pot_mid():
 func valor_sta_pot_big():
 	var sta_pot = stamina_potion_big
 	return sta_pot
-
+	
 func carregar_dados():
 	var arquivo = File.new()
 	var erro = arquivo.open(ARQUIVO, File.READ)

@@ -9,8 +9,8 @@ func _ready():
 	$Animation_Container.seller_anim()
 	board.carregar_dados()
 	#print(board.health_potion_small)
-	print(board.gold)
-	print (board.check)
+	#print(board.gold)
+	#print (board.check)
 	 
 func _process(delta):
 	$Gold.text = str(board.gold)
@@ -31,12 +31,10 @@ func dialog():
 	$StaminaPotionBig.visible = true
 	
 func _on_HealthPotionSmall_pressed():
-	dialog()
 	board.check = 1
 	board.salvar_dados()
-
-
-
+	dialog()
+	
 func _on_HealthPotionMid_pressed():
 	dialog()
 	board.check = 2

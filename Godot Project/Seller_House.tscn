@@ -227,6 +227,7 @@ align = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="9"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 55.5186, 0 )
 polygon = PoolVector2Array( 91.9521, 560.247, 91.9521, 668.809, 1144.7, 668.945, 1143.59, 560.357 )
