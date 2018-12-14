@@ -270,4 +270,11 @@ func _on_ButtonSmallStamina_pressed():
 		$TextureRect/Polygon2D.visible = false
 		
 func _on_Inventory_pressed():
+	board.carregar_dados()
 	$TextureRect/Polygon2D.visible = true
+	$TextureRect/Polygon2D/ButtonBigHP/BigHPValue.text = str(board.health_potion_big)
+	$TextureRect/Polygon2D/ButtonMediumHP/MediumHPValue.text = str(board.health_potion_mid)
+	$TextureRect/Polygon2D/ButtonSmallHP/SmallHPValue.text = str(board.health_potion_small)
+	$TextureRect/Polygon2D/ButtonBigStamina/BigStaminaValue.text = str(board.stamina_potion_big)
+	$TextureRect/Polygon2D/ButtonMediumStamina/MediumStaminaValue.text = str(board.stamina_potion_mid)
+	$TextureRect/Polygon2D/ButtonSmallStamina/SmallStaminaValue.text = str(board.stamina_potion_small)
