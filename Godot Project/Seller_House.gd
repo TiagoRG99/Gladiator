@@ -1,4 +1,5 @@
 extends Control
+
 var check
 var potion
 
@@ -11,8 +12,14 @@ func _ready():
 	$Animation_Container.show()
 	$Animation_Container.seller_anim()
 	board.carregar_dados()
-	print(board.health_potion_small)
-	print(board.gold)
+
+func _process(delta):
+	$Gold.text = str(board.gold)
+	$Attack/LevelATT.text = str(board.attack)
+	$Defence/LevelDEF.text = str(board.defence)
+	$Agility/LevelAGI.text = str(board.agility)
+	$Health/LevelHLT.text = str(board.health)
+	$Stamina/LevelSTA.text = str(board.stamina)
 
 
 func dialog():
@@ -20,88 +27,96 @@ func dialog():
 	$Polygon2D/Timer.start()
 	$Yes.visible = true
 	$No.visible =true
-	$HealthPotionSmall.visible = false
-	$HealthPotionMid.visible = false
-	$HealthPotionBig.visible = false
-	$StaminaPotionSmall.visible = false
-	$StaminaPotionMid.visible = false
-	$StaminaPotionBig.visible = false
+	$AttackBuy.disabled = true
+	$DefenceBuy.disabled = true
+	$AgilityBuy.disabled = true
+	$HealthBuy.disabled = true
+	$StaminaBuy.disabled = true
+
+func set_price(x):
+	if x==1:
+		return 250
+	elif x==2:
+		return 350
+	elif x==3:
+		return 500
+	elif x==4:
+		return 750
+	elif x==5:
+		return 1000
+	elif x==6:
+		return 1250
+	elif x==7:
+		return 1500
+	elif x==8:
+		return 1750
+	elif x==9:
+		return 2000
 
 
-func _on_HealthPotionSmall_pressed():
-	dialog()
-	check = 1
-
-
-func _on_HealthPotionMid_pressed():
-	dialog()
-	check = 2
-
-
-func _on_HealthPotionBig_pressed():
-	dialog()
-	check = 3
-
-
-func _on_StaminaPotionSmall_pressed():
-	dialog()
-	check = 4
-
-
-func _on_StaminaPotionMid_pressed():
-	dialog()
-	check = 5
-
-
-func _on_StaminaPotionBig_pressed():
-	dialog()
-	check = 6
 	
 func _on_Yes_pressed():
 	$Polygon2D.visible = false
 	$Yes.visible = false
 	$No.visible =false
-	$HealthPotionSmall.visible = true
-	$HealthPotionMid.visible = true
-	$HealthPotionBig.visible = true
-	$StaminaPotionSmall.visible = true
-	$StaminaPotionMid.visible = true
-	$StaminaPotionBig.visible = true
-	
-	if check == 1:
-		board.health_potion_small+=1
-		board.gold-=20
+	$AttackBuy.disabled = false
+	$DefenceBuy.disabled = false
+	$AgilityBuy.disabled = false
+	$HealthBuy.disabled = false
+	$StaminaBuy.disabled = false
+	if board.check == 7 && board.gold>=(set_price(board.attack)):
+		board.gold=board.gold-set_price(board.attack)
+		board.attack+=1
 		board.salvar_dados()
-	if check == 2:
-		board.health_potion_mid+=1
-		board.gold-=20
+	if board.check == 8 && board.gold>=set_price(board.defence):
+		board.gold-=set_price(board.defence)
+		board.defence+=1
 		board.salvar_dados()
-	if check == 3:
-		board.health_potion_big+=1
-		board.gold-=20
+	if board.check == 9 && board.gold>=set_price(board.agility):
+		board.gold-=set_price(board.agility)
+		board.agility+=1
 		board.salvar_dados()
-	if check == 4:
-		board.stamina_potion_small+=1
-		board.gold-=20
+	if board.check == 10 && board.gold>=set_price(board.health):
+		board.gold-=set_price(board.health)
+		board.health+=1
 		board.salvar_dados()
-	if check == 5:
-		board.stamina_potion_mid+=1
-		board.gold-=20
+	if board.check == 11 && board.gold>=set_price(board.stamina):
+		board.gold-=set_price(board.stamina)
+		board.stamina+=1
 		board.salvar_dados()
-	if check == 6:
-		board.stamina_potion_big+=1
-		board.gold-=20
-		board.salvar_dados()
-	
 
 
 func _on_No_pressed():
 	$Polygon2D.visible = false
 	$Yes.visible = false
 	$No.visible =false
-	$HealthPotionSmall.visible = true
-	$HealthPotionMid.visible = true
-	$HealthPotionBig.visible = true
-	$StaminaPotionSmall.visible = true
-	$StaminaPotionMid.visible = true
-	$StaminaPotionBig.visible = true
+	$AttackBuy.disabled = false
+	$DefenceBuy.disabled = false
+	$AgilityBuy.disabled = false
+	$HealthBuy.disabled = false
+	$StaminaBuy.disabled = false
+
+
+func _on_AttackBuy_pressed():
+	board.check = 7
+	board.salvar_dados()
+	dialog()
+	
+func _on_DefenceBuy_pressed():
+	board.check = 8
+	board.salvar_dados()
+	dialog()
+func _on_AgilityBuy_pressed():
+	board.check = 9
+	board.salvar_dados()
+	dialog()
+	
+func _on_HealthBuy_pressed():
+	board.check = 10
+	board.salvar_dados()
+	dialog()
+	
+func _on_StaminaBuy_pressed():
+	board.check = 11
+	board.salvar_dados()
+	dialog()

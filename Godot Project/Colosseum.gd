@@ -3,23 +3,25 @@ extends Control
 var board = load("res://Selectchar.gd").new()
 
 var anim
+var enemy
+var enemyATT=0
+var enemyDEF=0
+var enemyAGI=0
+var enemyHLT=0
+var enemySTA=0
 
 
 func _on_menuButton_pressed():
 	#get_tree().change_scene("res://NewGameScreen.tscn")
 	startTurn()
-
-
-
+	
+	
 func _ready():
 	$TextureRect/Enemy.health = 100
 	$TextureRect/Player.health = 100
 	anim = character_animation()
+	enemy_animation()
 	$TextureRect/Player.animation = "Idle_"+anim
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	$TextureRect/Enemy.animation = "Idle_"+enemy
 	
 
@@ -63,22 +65,8 @@ func rand_atributos(num):
 	enemySTA=randi()%11+1
 	if enemySTA>num:
 		enemySTA=enemySTA-(10-num)
-=======
->>>>>>> parent of c08661d... mais
 
 
-=======
-	
-	
->>>>>>> parent of 55e23d9... Colosseum+
-=======
-
-
->>>>>>> parent of 47b4971... Merge branch 'master' of https://github.com/TiagoRG99/Gladiator
-=======
-	
-	
->>>>>>> parent of 55e23d9... Colosseum+
 func character_animation():
 	board.carregar_dados()
 	var attack = board.valor_atk()
@@ -100,11 +88,7 @@ func character_animation():
 	elif heroe == 30:
 		anim = "WomanWarrior_2"
 	return anim
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-<<<<<<< HEAD
 func enemy_animation():
 	board.carregar_dados()
 	if board.stage == 4:
@@ -145,23 +129,8 @@ func enemy_animation():
 		elif board.stage>9&&board.stage<13:
 			rand_atributos(10)
 
-=======
->>>>>>> parent of c08661d... mais
 
 
-=======
-	
-	
->>>>>>> parent of 55e23d9... Colosseum+
-=======
-
-
-
->>>>>>> parent of 47b4971... Merge branch 'master' of https://github.com/TiagoRG99/Gladiator
-=======
-	
-	
->>>>>>> parent of 55e23d9... Colosseum+
 func endTurn():
 	$TextureRect/TextureRect/Walk_Right.disabled = true
 	$TextureRect/TextureRect/Walk_Left.disabled = true
@@ -173,63 +142,37 @@ func startTurn():
 	$TextureRect/TextureRect/Walk_Left.disabled = false
 	$TextureRect/TextureRect/Normal_Attack.disabled = false
 	$TextureRect/TextureRect/Power_Attack.disabled = false
-
-
+	
+	
 func _on_Walk_Left_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Player.position.x < 100:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x - 20
 	endTurn()
 	$Timer.start()
-
-
+	
 func _on_Power_Attack_pressed():
 	$TextureRect/Player.animation = "AttackPower_"+anim
 	if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
 		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 50
 	endTurn()
 	$Timer.start()
-
-
+	
 func _on_Normal_Attack_pressed():
 	$TextureRect/Player.animation = "AttackNormal_"+anim
 	if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
 		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 20
 	endTurn()
 	$Timer.start()
-
+	
 func _on_Player_animation_finished():
 	if $TextureRect/Player.animation != "Idle_"+anim and $TextureRect/Player.animation != "Die_"+anim:
 		$TextureRect/Player.animation = "Idle_"+anim
-
+		
 func _on_Enemy_animation_finished():
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	if $TextureRect/Enemy.animation != "Idle_"+enemy and $TextureRect/Enemy.animation != "Die_"+enemy:
 		$TextureRect/Enemy.animation = "Idle_"+enemy
-=======
-	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
-		$TextureRect/Enemy.animation = "Idle_Troll_1"
-<<<<<<< HEAD
->>>>>>> parent of 55e23d9... Colosseum+
-=======
-	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
-		$TextureRect/Enemy.animation = "Idle_Troll_1"
->>>>>>> parent of 55e23d9... Colosseum+
 		
-=======
-	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
-		$TextureRect/Enemy.animation = "Idle_Troll_1"
-
-
-
->>>>>>> parent of c08661d... mais
-=======
-
-
-
->>>>>>> parent of 47b4971... Merge branch 'master' of https://github.com/TiagoRG99/Gladiator
 func _on_Walk_Right_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 35:
@@ -238,12 +181,12 @@ func _on_Walk_Right_pressed():
 	$Timer.start()
 
 func enemyTurn():
-	if $TextureRect/Enemy.animation != "Die_Troll_1":
+	if $TextureRect/Enemy.animation != "Die_"+enemy:
 		if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x > 100:
-			$TextureRect/Enemy.animation = "Walk_Troll_1"
+			$TextureRect/Enemy.animation = "Walk_"+enemy
 			$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 20
 		else :
-			$TextureRect/Enemy.animation = "AttackNormal_Troll_1"
+			$TextureRect/Enemy.animation = "AttackNormal_"+enemy
 			if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
 				$TextureRect/Player.health = $TextureRect/Player.health - 20
 		startTurn()
@@ -253,7 +196,79 @@ func _return_newgame():
 		get_tree().change_scene("res://NewGameScreen.tscn")
 	if $TextureRect/Enemy.health == 0 :
 		get_tree().change_scene("res://NewGameScreen.tscn")
-
-
+		
 func _on_Timer_timeout():
 	enemyTurn()
+
+
+func _on_Bag_pressed():
+	$TextureRect/Polygon2D.visible = true
+
+
+func _on_ExitInventory_pressed():
+	$TextureRect/Polygon2D.visible = false
+
+
+func _on_ButtonBigHP_pressed():
+	board.carregar_dados()
+	if board.health_potion_big <= 0 :
+		print ("Não tens poção!")
+		$TextureRect/Polygon2D.visible = false
+	else:
+		board.health_potion_big = board.health_potion_big - 1
+		board.salvar_dados()
+		$TextureRect/Polygon2D.visible = false
+
+func _on_ButtonMediumHP_pressed():
+	board.carregar_dados()
+	if board.health_potion_mid <= 0:
+		print ("Não tens poção!")
+		$TextureRect/Polygon2D.visible = false
+	else:
+		board.health_potion_mid = board.health_potion_mid - 1
+		board.salvar_dados()
+		$TextureRect/Polygon2D.visible = false
+		
+		
+func _on_ButtonSmallHP_pressed():
+	board.carregar_dados()
+	if board.health_potion_small <= 0:
+		print ("Não tens poção!")
+		$TextureRect/Polygon2D.visible = false
+	else:
+		board.health_potion_small = board.health_potion_small - 1
+		board.salvar_dados()
+		$TextureRect/Polygon2D.visible = false
+
+
+func _on_ButtonBigStamina_pressed():
+	board.carregar_dados()
+	if board.stamina_potion_big <= 0:
+		print ("Não tens poção!")
+		$TextureRect/Polygon2D.visible = false
+	else:
+		board.stamina_potion_big = board.stamina_potion_big - 1
+		board.salvar_dados()
+		$TextureRect/Polygon2D.visible = false
+
+
+func _on_ButtonMediumStamina_pressed():
+	board.carregar_dados()
+	if board.stamina_potion_mid <= 0:
+		print ("Não tens poção!")
+		$TextureRect/Polygon2D.visible = false
+	else:
+		board.stamina_potion_mid = board.stamina_potion_mid - 1
+		board.salvar_dados()
+		$TextureRect/Polygon2D.visible = false
+
+
+func _on_ButtonSmallStamina_pressed():
+	board.carregar_dados()
+	if board.stamina_potion_small <= 0:
+		print ("Não tens poção!")
+		$TextureRect/Polygon2D.visible = false
+	else:
+		board.stamina_potion_small = board.stamina_potion_small - 1
+		board.salvar_dados()
+		$TextureRect/Polygon2D.visible = false

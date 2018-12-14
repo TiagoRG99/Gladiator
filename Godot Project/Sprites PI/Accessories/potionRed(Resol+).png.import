@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/goldCoin5.png-aef58035c3dd916e8db3d2c7736598c8.stex"
+path="res://.import/potionRed(Resol+).png-a373f0ef01a0d88923e37a04a1705fcf.stex"
 
 [deps]
 
-source_file="res://goldCoin5.png"
-dest_files=[ "res://.import/goldCoin5.png-aef58035c3dd916e8db3d2c7736598c8.stex" ]
+source_file="res://Sprites PI/Accessories/potionRed(Resol+).png"
+dest_files=[ "res://.import/potionRed(Resol+).png-a373f0ef01a0d88923e37a04a1705fcf.stex" ]
 
 [params]
 
