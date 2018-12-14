@@ -50,7 +50,7 @@ func _ready():
 	stamina_potion_small = 0
 	stamina_potion_mid = 0
 	stamina_potion_big = 0
-	gold = 0
+	gold = 20
 	check = 0
 	salvar_dados()
 
