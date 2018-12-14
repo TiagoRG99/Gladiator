@@ -64,6 +64,7 @@ func _on_Yes_pressed():
 	$AgilityBuy.disabled = false
 	$HealthBuy.disabled = false
 	$StaminaBuy.disabled = false
+	
 	if board.check == 7 && board.gold>=(set_price(board.attack)):
 		board.gold=board.gold-set_price(board.attack)
 		board.attack+=1

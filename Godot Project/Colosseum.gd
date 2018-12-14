@@ -199,12 +199,8 @@ func _return_newgame():
 		
 func _on_Timer_timeout():
 	enemyTurn()
-
-
-func _on_Bag_pressed():
-	$TextureRect/Polygon2D.visible = true
-
-
+	
+	
 func _on_ExitInventory_pressed():
 	$TextureRect/Polygon2D.visible = false
 
@@ -272,3 +268,6 @@ func _on_ButtonSmallStamina_pressed():
 		board.stamina_potion_small = board.stamina_potion_small - 1
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
+		
+func _on_Inventory_pressed():
+	$TextureRect/Polygon2D.visible = true

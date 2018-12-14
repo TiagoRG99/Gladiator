@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/potionRed(Resol+).png-a373f0ef01a0d88923e37a04a1705fcf.stex"
+path="res://.import/potionRed(+Resol).png-ef446acbc45a30fbd82a92b30ae9dcfd.stex"
 
 [deps]
 
-source_file="res://Sprites PI/Accessories/potionRed(Resol+).png"
-dest_files=[ "res://.import/potionRed(Resol+).png-a373f0ef01a0d88923e37a04a1705fcf.stex" ]
+source_file="res://Sprites PI/Accessories/potionRed(+Resol).png"
+dest_files=[ "res://.import/potionRed(+Resol).png-ef446acbc45a30fbd82a92b30ae9dcfd.stex" ]
 
 [params]
 
