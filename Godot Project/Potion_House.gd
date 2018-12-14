@@ -23,12 +23,12 @@ func dialog():
 	$Polygon2D/Timer.start()
 	$Yes.visible = true
 	$No.visible =true
-	$HealthPotionSmall.disabled = true
-	$HealthPotionMid.disabled = true
-	$HealthPotionBig.disabled = true
-	$StaminaPotionSmall.disabled = true
-	$StaminaPotionMid.disabled = true
-	$StaminaPotionBig.disabled = true
+	$HealthPotionSmall.visible = true
+	$HealthPotionMid.visible = true
+	$HealthPotionBig.visible = true
+	$StaminaPotionSmall.visible = true
+	$StaminaPotionMid.visible = true
+	$StaminaPotionBig.visible = true
 	
 func _on_HealthPotionSmall_pressed():
 	board.check = 1
@@ -36,78 +36,76 @@ func _on_HealthPotionSmall_pressed():
 	dialog()
 	
 func _on_HealthPotionMid_pressed():
+	dialog()
 	board.check = 2
 	board.salvar_dados()
-	dialog()
 
 func _on_HealthPotionBig_pressed():
+	dialog()
 	board.check = 3
 	board.salvar_dados()
-	dialog()
 
 func _on_StaminaPotionSmall_pressed():
+	dialog()
 	board.check = 4
 	board.salvar_dados()
-	dialog()
 
 func _on_StaminaPotionMid_pressed():
+	dialog()
 	board.check = 5
 	board.salvar_dados()
-	dialog()
 
 func _on_StaminaPotionBig_pressed():
+	dialog()
 	board.check = 6
 	board.salvar_dados()
-	dialog()
 
 func _on_Yes_pressed():
-	$Polygon2D/Timer.stop()
 	$Polygon2D.visible = false
 	$Yes.visible = false
 	$No.visible =false
-	$HealthPotionSmall.disabled = false
-	$HealthPotionMid.disabled = false
-	$HealthPotionBig.disabled = false
-	$StaminaPotionSmall.disabled = false
-	$StaminaPotionMid.disabled = false
-	$StaminaPotionBig.disabled = false
+	$HealthPotionSmall.visible = true
+	$HealthPotionMid.visible = true
+	$HealthPotionBig.visible = true
+	$StaminaPotionSmall.visible = true
+	$StaminaPotionMid.visible = true
+	$StaminaPotionBig.visible = true
 	
-	if board.check == 1 && board.gold >= 100 :
+	if board.check == 1 && board.gold >= 20 :
 		board.health_potion_small+=1
-		board.gold-=100
+		board.gold-=20
 		board.salvar_dados()
-	if board.check == 2 && board.gold >= 250 :
+	if board.check == 2 && board.gold >= 20 :
 		board.health_potion_mid+=1
-		board.gold-=250
+		board.gold-=20
 		board.salvar_dados()
-	if board.check == 3 && board.gold >= 500 :
+	if board.check == 3 && board.gold >= 20 :
 		board.health_potion_big+=1
-		board.gold-=500
+		board.gold-=20
 		board.salvar_dados()
-	if board.check == 4 && board.gold >= 100:
+	if board.check == 4 && board.gold >= 20:
 		board.stamina_potion_small+=1
-		board.gold-=100
+		board.gold-=20
 		board.salvar_dados()
-	if board.check == 5 && board.gold >= 250:
+	if board.check == 5 && board.gold >= 20:
 		board.stamina_potion_mid+=1
-		board.gold-=250
+		board.gold-=20
 		board.salvar_dados()
-	if board.check == 6 && board.gold >= 500:
+	if board.check == 6 && board.gold >= 20:
 		board.stamina_potion_big+=1
-		board.gold-=500
+		board.gold-=20
 		board.salvar_dados()
 	if board.gold < 20 :
 		print ("não tens guita!")
 	
 func _on_No_pressed():
-	$Polygon2D/Timer.stop()
 	$Polygon2D.visible = false
 	$Yes.visible = false
 	$No.visible =false
-	$HealthPotionSmall.disabled = false
-	$HealthPotionMid.disabled = false
-	$HealthPotionBig.disabled = false
-	$StaminaPotionSmall.disabled = false
-	$StaminaPotionMid.disabled = false
-	$StaminaPotionBig.disabled = false
+	$HealthPotionSmall.visible = true
+	$HealthPotionMid.visible = true
+	$HealthPotionBig.visible = true
+	$StaminaPotionSmall.visible = true
+	$StaminaPotionMid.visible = true
+	$StaminaPotionBig.visible = true
 	

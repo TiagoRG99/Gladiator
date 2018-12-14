@@ -14,7 +14,7 @@
 [ext_resource path="res://RichTextLabel.gd" type="Script" id=12]
 [ext_resource path="res://Sprites PI/Accessories/coin.png" type="Texture" id=13]
 
-[node name="Potion_House" type="Control"]
+[node name="Potion_House" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -68,11 +68,6 @@ __meta__ = {
 }
 
 [node name="Animation_Container" parent="." index="1" instance=ExtResource( 3 )]
-
-margin_left = -1.0
-margin_top = -1.0
-margin_right = -1.0
-margin_bottom = -1.0
 
 [node name="BackButton" parent="." index="2" instance=ExtResource( 4 )]
 
@@ -146,9 +141,6 @@ group = null
 flat = true
 align = 1
 _sections_unfolded = [ "Anchor", "Focus", "Margin", "Size Flags" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="Sprite" parent="HealthPotionMid" index="0"]
 
@@ -192,9 +184,6 @@ __meta__ = {
 position = Vector2( 27.6078, 54.5412 )
 rotation = 0.645873
 texture = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="StaminaPotionSmall" type="Button" parent="." index="6"]
 
@@ -228,9 +217,6 @@ __meta__ = {
 position = Vector2( 25.0528, 40.0949 )
 rotation = 0.6656
 texture = ExtResource( 9 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="StaminaPotionMid" type="Button" parent="." index="7"]
 
@@ -256,18 +242,12 @@ group = null
 flat = true
 align = 1
 _sections_unfolded = [ "Focus", "Margin" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="Sprite" parent="StaminaPotionMid" index="0"]
 
 position = Vector2( 30.109, 41.4364 )
 rotation = 0.704862
 texture = ExtResource( 10 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="StaminaPotionBig" type="Button" parent="." index="8"]
 
@@ -293,18 +273,12 @@ group = null
 flat = true
 align = 1
 _sections_unfolded = [ "Focus", "Margin" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="Sprite" parent="StaminaPotionBig" index="0"]
 
 position = Vector2( 34.4615, 47.8011 )
 rotation = 0.695461
 texture = ExtResource( 11 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="9"]
 
@@ -357,7 +331,7 @@ script = ExtResource( 12 )
 process_mode = 1
 wait_time = 0.05
 one_shot = false
-autostart = false
+autostart = true
 
 [node name="Yes" type="Button" parent="." index="10"]
 
@@ -366,10 +340,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1000.0
+margin_left = 982.0
 margin_top = 615.0
-margin_right = 1060.0
-margin_bottom = 660.0
+margin_right = 1041.0
+margin_bottom = 658.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -384,7 +358,6 @@ group = null
 text = "Yes"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
 
 [node name="No" type="Button" parent="." index="11"]
 
@@ -393,10 +366,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1100.0
+margin_left = 1082.0
 margin_top = 615.0
-margin_right = 1160.0
-margin_bottom = 660.0
+margin_right = 1140.0
+margin_bottom = 658.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -411,7 +384,6 @@ group = null
 text = "No"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
 
 [node name="Gold" type="Label" parent="." index="12"]
 
@@ -421,7 +393,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 22.0
 margin_top = 17.0
-margin_right = 157.0
+margin_right = 154.0
 margin_bottom = 67.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -446,8 +418,6 @@ position = Vector2( 161.667, 25.8174 )
 rotation = -0.0203633
 scale = Vector2( 1.1197, 1.1197 )
 texture = ExtResource( 13 )
-offset = Vector2( 1, 0 )
-_sections_unfolded = [ "Offset" ]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 
