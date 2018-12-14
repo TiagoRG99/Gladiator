@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites PI/Accessories/flatDark42.png" type="Texture" id=5]
 [ext_resource path="res://Montserrat_48.tres" type="DynamicFont" id=6]
 
-[node name="ClassDisplay" type="ColorRect" index="0"]
+[node name="ClassDisplay" type="ColorRect"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -27,17 +27,11 @@ script = ExtResource( 1 )
 position = Vector2( 651.286, 362.017 )
 scale = Vector2( 1.31844, 1.15187 )
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="player" type="Sprite" parent="." index="1"]
 
 position = Vector2( 306.183, 482.335 )
 texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Right" type="Button" parent="." index="2"]
 
@@ -63,9 +57,6 @@ icon = ExtResource( 4 )
 flat = false
 align = 1
 _sections_unfolded = [ "Margin", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Left" type="Button" parent="." index="3"]
 
@@ -92,9 +83,6 @@ icon = ExtResource( 4 )
 flat = false
 align = 1
 _sections_unfolded = [ "Margin", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Select" type="Button" parent="." index="4"]
 
@@ -102,9 +90,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 814.0
+margin_left = 758.0
 margin_top = 498.0
-margin_right = 934.0
+margin_right = 878.0
 margin_bottom = 553.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -119,23 +107,18 @@ group = null
 icon = ExtResource( 5 )
 flat = false
 align = 1
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="5"]
 
 modulate = Color( 0.242188, 0.242188, 0.242188, 1 )
-self_modulate = Color( 0.933594, 0.933594, 0.933594, 1 )
-light_mask = 0
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 604.0
 margin_top = 140.0
-margin_right = 1116.0
-margin_bottom = 465.0
+margin_right = 999.0
+margin_bottom = 468.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -143,19 +126,15 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-_sections_unfolded = [ "Material", "Theme", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Class" type="HBoxContainer" parent="VBoxContainer" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -196,7 +175,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 116.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -214,13 +193,12 @@ _sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
 [node name="Class2" type="HBoxContainer" parent="VBoxContainer" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 54.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 104.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -261,7 +239,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 147.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -279,13 +257,12 @@ _sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
 [node name="Class3" type="HBoxContainer" parent="VBoxContainer" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 108.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 158.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -327,7 +304,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 145.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -345,13 +322,12 @@ _sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
 [node name="Class4" type="HBoxContainer" parent="VBoxContainer" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 162.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 212.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -393,7 +369,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 181.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -411,13 +387,12 @@ _sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
 [node name="Class5" type="HBoxContainer" parent="VBoxContainer" index="4"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 216.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 266.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -458,7 +433,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 146.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -476,13 +451,12 @@ _sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
 [node name="Class6" type="HBoxContainer" parent="VBoxContainer" index="5"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 270.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 320.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -524,7 +498,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 183.0
-margin_right = 512.0
+margin_right = 395.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false

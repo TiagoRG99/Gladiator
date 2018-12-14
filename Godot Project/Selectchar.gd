@@ -51,8 +51,12 @@ func _ready():
 	stamina_potion_small = 0
 	stamina_potion_mid = 0
 	stamina_potion_big = 0
+<<<<<<< HEAD
 	stage = 0
 	gold = 20
+=======
+	gold = 0
+>>>>>>> parent of c08661d... mais
 	check = 0
 	salvar_dados()
 
