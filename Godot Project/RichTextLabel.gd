@@ -4,12 +4,12 @@ var board = load("res://Selectchar.gd").new()
 
 var dialog = [
 	"Hey! My name is Benjamin.",
-	"Welcome to my Godot dialog tutorial.",
-	"asdsdsa",
-	"asdasgwedq13",
-	"asdfq32e3r33",
-	"MANSNFSA",
-	"TWEQWSDA"]
+	"Small Health Potion. Costs 100 coins. Do You want to buy?",
+	"Medium Health Potion. Costs 250 coins. Do You want to buy?",
+	"Big Health Potion. Costs 500 coins. Do You want to buy?",
+	"Small Stamina Potion. Costs 100 coins. Do You want to buy?",
+	"Medium Stamina Potion. Costs 250 coins. Do You want to buy?",
+	"Big Stamina Potion. Costs 500 coins. Do You want to buy?"]
 	
 var page = 0
 

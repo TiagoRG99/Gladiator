@@ -1,6 +1,7 @@
 extends Control
 var check
 var potion
+var price
 
 var board = load("res://Selectchar.gd").new()
 
@@ -11,8 +12,40 @@ func _ready():
 	$Animation_Container.show()
 	$Animation_Container.seller_anim()
 	board.carregar_dados()
-	print(board.health_potion_small)
-	print(board.gold)
+	if board.attack==1:
+		price=250
+	board.carregar_dados()
+	if board.attack==2:
+		price=350
+	board.carregar_dados()
+	if board.attack==3:
+		price=500
+	board.carregar_dados()
+	if board.attack==4:
+		price=750
+	board.carregar_dados()
+	if board.attack==5:
+		price=1000
+	board.carregar_dados()
+	if board.attack==6:
+		price=1250
+	board.carregar_dados()
+	if board.attack==7:
+		price=1500
+	board.carregar_dados()
+	if board.attack==8:
+		price=1750
+	board.carregar_dados()
+	if board.attack==9:
+		price=2000
+
+func _process(delta):
+	$Gold.text = str(board.gold)
+	$Attack/LevelATT.text = str(board.attack)
+	$Defence/LevelDEF.text = str(board.defence)
+	$Agility/LevelAGI.text = str(board.agility)
+	$Health/LevelHLT.text = str(board.health)
+	$Stamina/LevelSTA.text = str(board.stamina)
 
 
 func dialog():
@@ -20,88 +53,78 @@ func dialog():
 	$Polygon2D/Timer.start()
 	$Yes.visible = true
 	$No.visible =true
-	$HealthPotionSmall.visible = false
-	$HealthPotionMid.visible = false
-	$HealthPotionBig.visible = false
-	$StaminaPotionSmall.visible = false
-	$StaminaPotionMid.visible = false
-	$StaminaPotionBig.visible = false
+	$AttackBuy.disabled = true
+	$DefenceBuy.disabled = true
+	$AgilityBuy.disabled = true
+	$HealthBuy.disabled = true
+	$StaminaBuy.disabled = true
 
 
-func _on_HealthPotionSmall_pressed():
-	dialog()
-	check = 1
 
-
-func _on_HealthPotionMid_pressed():
-	dialog()
-	check = 2
-
-
-func _on_HealthPotionBig_pressed():
-	dialog()
-	check = 3
-
-
-func _on_StaminaPotionSmall_pressed():
-	dialog()
-	check = 4
-
-
-func _on_StaminaPotionMid_pressed():
-	dialog()
-	check = 5
-
-
-func _on_StaminaPotionBig_pressed():
-	dialog()
-	check = 6
 	
 func _on_Yes_pressed():
 	$Polygon2D.visible = false
 	$Yes.visible = false
 	$No.visible =false
-	$HealthPotionSmall.visible = true
-	$HealthPotionMid.visible = true
-	$HealthPotionBig.visible = true
-	$StaminaPotionSmall.visible = true
-	$StaminaPotionMid.visible = true
-	$StaminaPotionBig.visible = true
+	$AttackBuy.disabled = false
+	$DefenceBuy.disabled = false
+	$AgilityBuy.disabled = false
+	$HealthBuy.disabled = false
+	$StaminaBuy.disabled = false
 	
-	if check == 1:
-		board.health_potion_small+=1
-		board.gold-=20
+	if check == 7 && board.gold>=price:
+		board.attack+=1
+		board.gold-=price
 		board.salvar_dados()
-	if check == 2:
-		board.health_potion_mid+=1
-		board.gold-=20
+	if check == 8 && board.gold>=price:
+		board.defence+=1
+		board.gold-=price
 		board.salvar_dados()
-	if check == 3:
-		board.health_potion_big+=1
-		board.gold-=20
+	if check == 9 && board.gold>=price:
+		board.agility+=1
+		board.gold-=price
 		board.salvar_dados()
-	if check == 4:
-		board.stamina_potion_small+=1
-		board.gold-=20
+	if check == 10 && board.gold>=price:
+		board.health+=1
+		board.gold-=price
 		board.salvar_dados()
-	if check == 5:
-		board.stamina_potion_mid+=1
-		board.gold-=20
+	if check == 11 && board.gold>=price:
+		board.stamina+=1
+		board.gold-=price
 		board.salvar_dados()
-	if check == 6:
-		board.stamina_potion_big+=1
-		board.gold-=20
-		board.salvar_dados()
-	
 
 
 func _on_No_pressed():
 	$Polygon2D.visible = false
 	$Yes.visible = false
 	$No.visible =false
-	$HealthPotionSmall.visible = true
-	$HealthPotionMid.visible = true
-	$HealthPotionBig.visible = true
-	$StaminaPotionSmall.visible = true
-	$StaminaPotionMid.visible = true
-	$StaminaPotionBig.visible = true
+	$AttackBuy.disabled = false
+	$DefenceBuy.disabled = false
+	$AgilityBuy.disabled = false
+	$HealthBuy.disabled = false
+	$StaminaBuy.disabled = false
+
+
+func _on_AttackBuy_pressed():
+	dialog()
+	check = 7
+
+
+func _on_DefenceBuy_pressed():
+	dialog()
+	check = 8
+
+
+func _on_AgilityBuy_pressed():
+	dialog()
+	check = 9
+
+
+func _on_HealthBuy_pressed():
+	dialog()
+	check = 10
+
+
+func _on_StaminaBuy_pressed():
+	dialog()
+	check = 11
