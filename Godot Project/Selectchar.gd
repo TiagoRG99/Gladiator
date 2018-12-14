@@ -53,7 +53,10 @@ func _ready():
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	stage = 0
+=======
+>>>>>>> parent of 55e23d9... Colosseum+
 =======
 >>>>>>> parent of 55e23d9... Colosseum+
 	gold = 20
