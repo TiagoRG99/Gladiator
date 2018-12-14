@@ -52,6 +52,7 @@ func _ready():
 	stamina_potion_big = 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	stage = 0
 =======
 >>>>>>> parent of 55e23d9... Colosseum+
@@ -59,6 +60,9 @@ func _ready():
 =======
 	gold = 0
 >>>>>>> parent of c08661d... mais
+=======
+	gold = 0
+>>>>>>> parent of 47b4971... Merge branch 'master' of https://github.com/TiagoRG99/Gladiator
 	check = 0
 	salvar_dados()
 

@@ -18,6 +18,7 @@ func _ready():
 	$TextureRect/Player.animation = "Idle_"+anim
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	$TextureRect/Enemy.animation = "Idle_"+enemy
 	
 
@@ -69,6 +70,10 @@ func rand_atributos(num):
 	
 	
 >>>>>>> parent of 55e23d9... Colosseum+
+=======
+
+
+>>>>>>> parent of 47b4971... Merge branch 'master' of https://github.com/TiagoRG99/Gladiator
 func character_animation():
 	board.carregar_dados()
 	var attack = board.valor_atk()
@@ -90,6 +95,7 @@ func character_animation():
 	elif heroe == 30:
 		anim = "WomanWarrior_2"
 	return anim
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 <<<<<<< HEAD
@@ -141,6 +147,11 @@ func enemy_animation():
 	
 	
 >>>>>>> parent of 55e23d9... Colosseum+
+=======
+
+
+
+>>>>>>> parent of 47b4971... Merge branch 'master' of https://github.com/TiagoRG99/Gladiator
 func endTurn():
 	$TextureRect/TextureRect/Walk_Right.disabled = true
 	$TextureRect/TextureRect/Walk_Left.disabled = true
@@ -189,6 +200,7 @@ func _on_Enemy_animation_finished():
 =======
 	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
 		$TextureRect/Enemy.animation = "Idle_Troll_1"
+<<<<<<< HEAD
 >>>>>>> parent of 55e23d9... Colosseum+
 		
 =======
@@ -198,6 +210,11 @@ func _on_Enemy_animation_finished():
 
 
 >>>>>>> parent of c08661d... mais
+=======
+
+
+
+>>>>>>> parent of 47b4971... Merge branch 'master' of https://github.com/TiagoRG99/Gladiator
 func _on_Walk_Right_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 35:
