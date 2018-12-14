@@ -1,36 +1,14 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 [gd_scene load_steps=531 format=2]
-=======
 [gd_scene load_steps=325 format=2]
->>>>>>> parent of c08661d... mais
-=======
 [gd_scene load_steps=325 format=2]
->>>>>>> parent of 50b5354... Colosseum_Animations_1
-=======
 [gd_scene load_steps=531 format=2]
->>>>>>> parent of 329c87b... Revert "Colosseum_Animations_1"
-=======
 [gd_scene load_steps=325 format=2]
->>>>>>> parent of 47b4971... Merge branch 'master' of https://github.com/TiagoRG99/Gladiator
-=======
 [gd_scene load_steps=332 format=2]
->>>>>>> parent of 87a1b88... +
 
 [ext_resource path="res://Colosseum.gd" type="Script" id=1]
 [ext_resource path="res://Sprites PI/531a2cde9f1ba_thumb900.jpg" type="Texture" id=2]
 [ext_resource path="res://Buttons/MenuButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Montserrat_48.tres" type="DynamicFont" id=4]
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 [ext_resource path="res://Sprites PI/Trolls/_PNG/3_TROLL/WALK/WALK_000.png" type="Texture" id=5]
 [ext_resource path="res://Sprites PI/Trolls/_PNG/3_TROLL/WALK/WALK_001.png" type="Texture" id=6]
 [ext_resource path="res://Sprites PI/Trolls/_PNG/3_TROLL/WALK/WALK_002.png" type="Texture" id=7]
@@ -80,13 +58,6 @@
 [ext_resource path="res://Sprites PI/Woman Warrior/_PNG/2/2_WALK_002.png" type="Texture" id=24]
 [ext_resource path="res://Sprites PI/Woman Warrior/_PNG/2/2_WALK_003.png" type="Texture" id=25]
 [ext_resource path="res://Sprites PI/Woman Warrior/_PNG/2/2_WALK_004.png" type="Texture" id=26]
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 55e23d9... Colosseum+
-=======
->>>>>>> parent of 329c87b... Revert "Colosseum_Animations_1"
-=======
->>>>>>> parent of 55e23d9... Colosseum+
 [ext_resource path="res://Sprites PI/Woman Warrior/_PNG/2/1_IDLE_000.png" type="Texture" id=27]
 [ext_resource path="res://Sprites PI/Woman Warrior/_PNG/2/1_IDLE_001.png" type="Texture" id=28]
 [ext_resource path="res://Sprites PI/Woman Warrior/_PNG/2/1_IDLE_002.png" type="Texture" id=29]
