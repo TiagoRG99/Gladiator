@@ -357,7 +357,7 @@ script = ExtResource( 12 )
 process_mode = 1
 wait_time = 0.05
 one_shot = false
-autostart = true
+autostart = false
 
 [node name="Yes" type="Button" parent="." index="10"]
 

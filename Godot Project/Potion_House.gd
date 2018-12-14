@@ -36,31 +36,32 @@ func _on_HealthPotionSmall_pressed():
 	dialog()
 	
 func _on_HealthPotionMid_pressed():
-	dialog()
 	board.check = 2
 	board.salvar_dados()
+	dialog()
 
 func _on_HealthPotionBig_pressed():
-	dialog()
 	board.check = 3
 	board.salvar_dados()
+	dialog()
 
 func _on_StaminaPotionSmall_pressed():
-	dialog()
 	board.check = 4
 	board.salvar_dados()
+	dialog()
 
 func _on_StaminaPotionMid_pressed():
-	dialog()
 	board.check = 5
 	board.salvar_dados()
+	dialog()
 
 func _on_StaminaPotionBig_pressed():
-	dialog()
 	board.check = 6
 	board.salvar_dados()
+	dialog()
 
 func _on_Yes_pressed():
+	$Polygon2D/Timer.stop()
 	$Polygon2D.visible = false
 	$Yes.visible = false
 	$No.visible =false
@@ -99,6 +100,7 @@ func _on_Yes_pressed():
 		print ("não tens guita!")
 	
 func _on_No_pressed():
+	$Polygon2D/Timer.stop()
 	$Polygon2D.visible = false
 	$Yes.visible = false
 	$No.visible =false

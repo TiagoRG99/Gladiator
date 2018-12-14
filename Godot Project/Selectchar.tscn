@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites PI/Accessories/flatDark42.png" type="Texture" id=5]
 [ext_resource path="res://Montserrat_48.tres" type="DynamicFont" id=6]
 
-[node name="ClassDisplay" type="ColorRect"]
+[node name="ClassDisplay" type="ColorRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -271,9 +271,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Rect" ]
 
 [node name="Label" type="Label" parent="VBoxContainer/Class3" index="0"]
 
@@ -295,6 +293,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LabelAgility" type="Label" parent="VBoxContainer/Class3" index="1"]
 
@@ -335,9 +336,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Rect" ]
 
 [node name="Label" type="Label" parent="VBoxContainer/Class4" index="0"]
 
@@ -359,6 +358,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LabelStamina" type="Label" parent="VBoxContainer/Class4" index="1"]
 
@@ -399,9 +401,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="VBoxContainer/Class5" index="0"]
 
@@ -423,6 +422,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LabelHealth" type="Label" parent="VBoxContainer/Class5" index="1"]
 
@@ -463,9 +465,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Rect" ]
 
 [node name="Label" type="Label" parent="VBoxContainer/Class6" index="0"]
 
@@ -487,6 +487,9 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LabelDefence" type="Label" parent="VBoxContainer/Class6" index="1"]
 
