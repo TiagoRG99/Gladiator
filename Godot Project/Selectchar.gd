@@ -14,8 +14,7 @@ var stamina_potion_small = 0
 var stamina_potion_mid = 0
 var stamina_potion_big = 0
 var gold = 0
-var check
-var stage
+var check 
 
 const ARQUIVO = "user://save.data"
 
@@ -52,7 +51,10 @@ func _ready():
 	stamina_potion_mid = 0
 	stamina_potion_big = 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 	stage = 0
+=======
+>>>>>>> parent of 55e23d9... Colosseum+
 	gold = 20
 =======
 	gold = 0
@@ -112,7 +114,7 @@ func salvar_dados():
 	var arquivo = File.new()
 	var erro = arquivo.open(ARQUIVO, File.WRITE)
 	
-	var dados = {"global" : {"heroe value":heroe_num, "gold value":gold, "check value": check, "stage value":stage}, "atributos": {"attack value":attack, "agility value":agility, "stamina value":stamina, "health value":health, "defence value":defence}, "potions": {"health_potion_small value":health_potion_small, "health_potion_mid value":health_potion_mid, "health_potion_big value":health_potion_big,"stamina_potion_small value":stamina_potion_small, "stamina_potion_mid value":stamina_potion_mid, "stamina_potion_big value":stamina_potion_big}}
+	var dados = {"heroe value":heroe_num, "atributos": {"attack value":attack, "agility value":agility, "stamina value":stamina, "health value":health, "defence value":defence}, "potions": {"health_potion_small value":health_potion_small, "health_potion_mid value":health_potion_mid, "health_potion_big value":health_potion_big,"stamina_potion_small value":stamina_potion_small, "stamina_potion_mid value":stamina_potion_mid, "stamina_potion_big value":stamina_potion_big}, "gold value":gold, "check value": check}
 	
 	if not erro :
 		arquivo.store_var(dados)
@@ -172,8 +174,7 @@ func carregar_dados():
 	
 	if not erro :
 		var dados_salvos = arquivo.get_var()
-		print(dados_salvos)
-		heroe_num = dados_salvos["global"]["heroe value"]
+		heroe_num = dados_salvos["heroe value"]
 		attack = dados_salvos["atributos"]["attack value"]
 		agility = dados_salvos["atributos"]["agility value"]
 		stamina = dados_salvos["atributos"]["stamina value"]
@@ -185,9 +186,8 @@ func carregar_dados():
 		stamina_potion_small = dados_salvos["potions"]["stamina_potion_small value"]
 		stamina_potion_mid = dados_salvos["potions"]["stamina_potion_mid value"]
 		stamina_potion_big = dados_salvos["potions"]["stamina_potion_big value"]
-		gold = dados_salvos["global"]["gold value"]
-		check = dados_salvos["global"]["check value"]
-		stage = dados_salvos["global"]["stage value"]
+		gold = dados_salvos["gold value"]
+		check = dados_salvos ["check value"]
 		#print (dados_salvos)
 	else:
 		print ("Erro ao salvar dados")

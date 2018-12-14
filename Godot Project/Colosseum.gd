@@ -3,12 +3,6 @@ extends Control
 var board = load("res://Selectchar.gd").new()
 
 var anim
-var enemy
-var enemyATT=0
-var enemyDEF=0
-var enemyAGI=0
-var enemyHLT=0
-var enemySTA=0
 
 
 func _on_menuButton_pressed():
@@ -21,8 +15,8 @@ func _ready():
 	$TextureRect/Enemy.health = 100
 	$TextureRect/Player.health = 100
 	anim = character_animation()
-	enemy_animation()
 	$TextureRect/Player.animation = "Idle_"+anim
+<<<<<<< HEAD
 <<<<<<< HEAD
 	$TextureRect/Enemy.animation = "Idle_"+enemy
 	
@@ -71,6 +65,10 @@ func rand_atributos(num):
 >>>>>>> parent of c08661d... mais
 
 
+=======
+	
+	
+>>>>>>> parent of 55e23d9... Colosseum+
 func character_animation():
 	board.carregar_dados()
 	var attack = board.valor_atk()
@@ -92,6 +90,7 @@ func character_animation():
 	elif heroe == 30:
 		anim = "WomanWarrior_2"
 	return anim
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 func enemy_animation():
@@ -138,6 +137,10 @@ func enemy_animation():
 >>>>>>> parent of c08661d... mais
 
 
+=======
+	
+	
+>>>>>>> parent of 55e23d9... Colosseum+
 func endTurn():
 	$TextureRect/TextureRect/Walk_Right.disabled = true
 	$TextureRect/TextureRect/Walk_Left.disabled = true
@@ -180,8 +183,13 @@ func _on_Player_animation_finished():
 
 func _on_Enemy_animation_finished():
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if $TextureRect/Enemy.animation != "Idle_"+enemy and $TextureRect/Enemy.animation != "Die_"+enemy:
 		$TextureRect/Enemy.animation = "Idle_"+enemy
+=======
+	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
+		$TextureRect/Enemy.animation = "Idle_Troll_1"
+>>>>>>> parent of 55e23d9... Colosseum+
 		
 =======
 	if $TextureRect/Enemy.animation != "Idle_Troll_1" and $TextureRect/Enemy.animation != "Die_Troll_1":
@@ -198,12 +206,12 @@ func _on_Walk_Right_pressed():
 	$Timer.start()
 
 func enemyTurn():
-	if $TextureRect/Enemy.animation != "Die_"+enemy:
+	if $TextureRect/Enemy.animation != "Die_Troll_1":
 		if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x > 100:
-			$TextureRect/Enemy.animation = "Walk_"+enemy
+			$TextureRect/Enemy.animation = "Walk_Troll_1"
 			$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 20
 		else :
-			$TextureRect/Enemy.animation = "AttackNormal_"+enemy
+			$TextureRect/Enemy.animation = "AttackNormal_Troll_1"
 			if $TextureRect/Player.position.x - $TextureRect/Enemy.position.x < 30:
 				$TextureRect/Player.health = $TextureRect/Player.health - 20
 		startTurn()
