@@ -44,6 +44,9 @@ _sections_unfolded = [ "Rect" ]
 position = Vector2( 640.892, 359.099 )
 scale = Vector2( 2.51167, 1.41701 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Back" type="Button" parent="." index="2"]
 
@@ -67,7 +70,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Exit"
+text = "Back"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]

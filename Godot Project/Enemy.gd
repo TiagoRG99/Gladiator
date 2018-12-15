@@ -1,6 +1,9 @@
 extends AnimatedSprite
 
 var health = 100
+var enemy
+
+var board = load ("res://Colosseum.gd").new()
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -9,6 +12,7 @@ func _ready():
 
 func _process(delta):
 	if health <= 0:
+		print (board.enemySelected())
 		animation = "Die_Troll_1"
 		$Timer.start()
 		health = 1
