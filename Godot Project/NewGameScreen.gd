@@ -1,7 +1,7 @@
 extends Control
 
 func _on_ColosseumButton_pressed():
-	get_tree().change_scene("res://Colosseum.tscn")
+	get_tree().change_scene("res://FightSelection.tscn")
 
 func _on_PotionHouseButton3_pressed():
 	get_tree().change_scene("res://Potion_House.tscn")
