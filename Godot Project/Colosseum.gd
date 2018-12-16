@@ -9,30 +9,35 @@ var enemyDEF=0
 var enemyAGI=0
 var enemyHLT=0
 var enemySTA=0
-
+var random
 
 func _on_menuButton_pressed():
 	#get_tree().change_scene("res://NewGameScreen.tscn")
 	startTurn()
-	
-	
+
 func _ready():
+	randomize()
 	$TextureRect/Enemy.health = 100
 	$TextureRect/Player.health = 100
+	random = randi()%11+1
+	print(random)
 	anim = character_animation()
 	enemy_animation()
 	$TextureRect/Player.animation = "Idle_"+anim
 	$TextureRect/Enemy.animation = "Idle_"+enemy
-	
-
 
 func enemyChar(rnd):
 	if rnd==1:
-		return "Elf_1Dark"
+		if board.heroe_num==1 || board.heroe_num==10:
+			return "Knight_1"
+		elif board.heroe_num==2 || board.heroe_num==20 || board.heore_num==200:
+			return "Amazon_1"
+		elif board.heroe_num==3 || board.heroe_num==30:
+			return "Elf_1"
 	elif rnd==2:
-		return "Elf_2Dark"
+		return "Elf_1Dark"
 	elif rnd==3:
-		return "Knight_2Dark"
+		return "Elf_2Dark"
 	elif rnd==4:
 		return "Knight_3Dark"
 	elif rnd==5:
@@ -47,7 +52,6 @@ func enemyChar(rnd):
 		return "Knight_2"
 	elif rnd==10:
 		return "Knight_3"
-
 
 func rand_atributos(num):
 	enemyATT=randi()%11+1
@@ -66,26 +70,21 @@ func rand_atributos(num):
 	if enemySTA>num:
 		enemySTA=enemySTA-(10-num)
 
-
 func character_animation():
 	board.carregar_dados()
-	var attack = board.valor_atk()
-	var heroe = board.valor_char()
-	print(attack)
-	print (heroe)
-	if heroe == 1:
+	if board.heroe_num == 1:
 		anim = "Elf_1"
-	elif heroe == 2:
+	elif board.heroe_num == 2:
 		anim = "Knight_1"
-	elif heroe == 3:
+	elif board.heroe_num == 3:
 		anim = "WomanWarrior_1"
-	elif heroe == 10:
+	elif board.heroe_num == 10:
 		anim = "Elf_2"
-	elif heroe == 20:
+	elif board.heroe_num == 20:
 		anim = "Knight_2"
-	elif heroe == 200:
+	elif board.heroe_num == 200:
 		anim = "Knight_3"
-	elif heroe == 30:
+	elif board.heroe_num == 30:
 		anim = "WomanWarrior_2"
 	return anim
 
@@ -120,7 +119,6 @@ func enemy_animation():
 		enemyDEF=8
 		enemyHLT=9
 	else:
-		var random = randi()%11+1
 		enemy=enemyChar(random)
 		if board.stage<4:
 			rand_atributos(4)
@@ -128,12 +126,6 @@ func enemy_animation():
 			rand_atributos(7)
 		elif board.stage>9&&board.stage<13:
 			rand_atributos(10)
-		
-func enemySelected():
-	var random = randi()%11+1
-	enemy=enemyChar(random)
-	return enemy
-	
 
 func endTurn():
 	$TextureRect/TextureRect/Walk_Right.disabled = true
@@ -146,22 +138,21 @@ func startTurn():
 	$TextureRect/TextureRect/Walk_Left.disabled = false
 	$TextureRect/TextureRect/Normal_Attack.disabled = false
 	$TextureRect/TextureRect/Power_Attack.disabled = false
-	
-	
+
 func _on_Walk_Left_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Player.position.x < 100:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x - 40
 	endTurn()
 	$Timer.start()
-	
+
 func _on_Power_Attack_pressed():
 	$TextureRect/Player.animation = "AttackPower_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
 		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 50
 	endTurn()
 	$Timer.start()
-	
+
 func _on_Normal_Attack_pressed():
 	$TextureRect/Player.animation = "AttackNormal_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
@@ -176,15 +167,14 @@ func _on_Walk_Right_pressed():
 	endTurn()
 	
 	$Timer.start()
-	
+
 func _on_Player_animation_finished():
 	if $TextureRect/Player.animation != "Idle_"+anim and $TextureRect/Player.animation != "Die_"+anim:
 		$TextureRect/Player.animation = "Idle_"+anim
-		
+
 func _on_Enemy_animation_finished():
 	if $TextureRect/Enemy.animation != "Idle_"+enemy and $TextureRect/Enemy.animation != "Die_"+enemy:
 		$TextureRect/Enemy.animation = "Idle_"+enemy
-		
 
 func enemyTurn():
 	if $TextureRect/Enemy.animation != "Die_"+enemy:
@@ -196,20 +186,18 @@ func enemyTurn():
 			if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
 				$TextureRect/Player.health = $TextureRect/Player.health - 20
 		startTurn()
-		
+
 func _return_newgame():
 	if $TextureRect/Player.health == 0 :
 		get_tree().change_scene("res://NewGameScreen.tscn")
 	if $TextureRect/Enemy.health == 0 :
 		get_tree().change_scene("res://NewGameScreen.tscn")
-		
+
 func _on_Timer_timeout():
 	enemyTurn()
-	
-	
+
 func _on_ExitInventory_pressed():
 	$TextureRect/Polygon2D.visible = false
-
 
 func _on_ButtonBigHP_pressed():
 	board.carregar_dados()
@@ -230,8 +218,7 @@ func _on_ButtonMediumHP_pressed():
 		board.health_potion_mid = board.health_potion_mid - 1
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
-		
-		
+
 func _on_ButtonSmallHP_pressed():
 	board.carregar_dados()
 	if board.health_potion_small <= 0:
@@ -241,7 +228,6 @@ func _on_ButtonSmallHP_pressed():
 		board.health_potion_small = board.health_potion_small - 1
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
-
 
 func _on_ButtonBigStamina_pressed():
 	board.carregar_dados()
@@ -253,7 +239,6 @@ func _on_ButtonBigStamina_pressed():
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
-
 func _on_ButtonMediumStamina_pressed():
 	board.carregar_dados()
 	if board.stamina_potion_mid <= 0:
@@ -264,7 +249,6 @@ func _on_ButtonMediumStamina_pressed():
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
-
 func _on_ButtonSmallStamina_pressed():
 	board.carregar_dados()
 	if board.stamina_potion_small <= 0:
@@ -274,7 +258,7 @@ func _on_ButtonSmallStamina_pressed():
 		board.stamina_potion_small = board.stamina_potion_small - 1
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
-		
+
 func _on_Inventory_pressed():
 	board.carregar_dados()
 	$TextureRect/Polygon2D.visible = true
