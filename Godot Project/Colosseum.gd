@@ -20,6 +20,7 @@ func _process(delta):
 		$TextureRect/Enemy.animation = "Die_"+enemy
 		$TextureRect/Enemy/Timer.start()
 		$TextureRect/Enemy.health = 1
+		board.stage+=1
 	if $TextureRect/Player.health <= 0:
 		$TextureRect/Player.animation = "Die_"+anim
 		$TextureRect/Player/Timer.start()
