@@ -15,6 +15,17 @@ func _on_menuButton_pressed():
 	#get_tree().change_scene("res://NewGameScreen.tscn")
 	startTurn()
 
+func _process(delta):
+	if $TextureRect/Enemy.health <= 0:
+		$TextureRect/Enemy.animation = "Die_"+enemy
+		$TextureRect/Enemy/Timer.start()
+		$TextureRect/Enemy.health = 1
+	if $TextureRect/Player.health <= 0:
+		$TextureRect/Player.animation = "Die_"+anim
+		$TextureRect/Player/Timer.start()
+		$TextureRect/Player.health = 1
+
+
 func _ready():
 	randomize()
 	$TextureRect/Enemy.health = 100
