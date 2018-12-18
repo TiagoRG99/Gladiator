@@ -1,6 +1,7 @@
 extends Control
 
 var board = load("res://Selectchar.gd").new()
+var board2 = load("res://Player.gd").new()
 
 var anim
 var enemy
@@ -21,8 +22,8 @@ func _on_menuButton_pressed():
 	startTurn()
 
 func _process(delta):
-	$TextureRect/LifePlayer/HPValue.text = str(player_health_calc($TextureRect/Player.health))
-	$TextureRect/LifeEnemy/HPValue2.text = str(enemy_health_calc($TextureRect/Enemy.health))
+	$TextureRect/LifePlayer/HPValue.text = str(int(player_health_calc($TextureRect/Player.health)))
+	$TextureRect/LifeEnemy/HPValue2.text = str(int(enemy_health_calc($TextureRect/Enemy.health)))
 	if $TextureRect/Enemy.health <= 0:
 		$TextureRect/Enemy.animation = "Die_"+enemy
 		$TextureRect/Enemy/Timer.start()
@@ -268,6 +269,7 @@ func _on_ButtonBigHP_pressed():
 		$TextureRect/Polygon2D.visible = false
 	else:
 		board.health_potion_big = board.health_potion_big - 1
+		$TextureRect/Player.health = playerHLT * 0.75
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
@@ -278,6 +280,7 @@ func _on_ButtonMediumHP_pressed():
 		$TextureRect/Polygon2D.visible = false
 	else:
 		board.health_potion_mid = board.health_potion_mid - 1
+		$TextureRect/Player.health = playerHLT * 0.5
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
@@ -288,6 +291,7 @@ func _on_ButtonSmallHP_pressed():
 		$TextureRect/Polygon2D.visible = false
 	else:
 		board.health_potion_small = board.health_potion_small - 1
+		$TextureRect/Player.health = playerHLT * 0.25
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
@@ -298,6 +302,7 @@ func _on_ButtonBigStamina_pressed():
 		$TextureRect/Polygon2D.visible = false
 	else:
 		board.stamina_potion_big = board.stamina_potion_big - 1
+		$TextureRect/Player.health = playerHLT * 0.75
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
