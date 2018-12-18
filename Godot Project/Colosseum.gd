@@ -21,8 +21,8 @@ func _on_menuButton_pressed():
 	startTurn()
 
 func _process(delta):
-	$TextureRect/LifePlayer/HPValue.text = str($TextureRect/Player.health)
-	$TextureRect/LifeEnemy/HPValue2.text = str($TextureRect/Enemy.health)
+	$TextureRect/LifePlayer/HPValue.text = str(player_health_calc($TextureRect/Player.health))
+	$TextureRect/LifeEnemy/HPValue2.text = str(enemy_health_calc($TextureRect/Enemy.health))
 	if $TextureRect/Enemy.health <= 0:
 		$TextureRect/Enemy.animation = "Die_"+enemy
 		$TextureRect/Enemy/Timer.start()
@@ -37,19 +37,52 @@ func _process(delta):
 		$TextureRect/LifeEnemy.visible=false
 		$TextureRect/LifePlayer.visible=false
 
+
+func player_health_calc(healthCalc):
+	healthCalc=(((healthCalc)*100)/playerHLT)
+	return healthCalc
+
+func enemy_health_calc(calcHealth):
+	calcHealth=  (((calcHealth)*100)/enemyHLT)
+	return calcHealth
+
+
 func player_atributos():
 	board.carregar_dados()
 	#Attack
-	
+	playerATT=board.attack*board.attack
+	#Defence
+	playerDEF=board.defence*board.defence
+	#Agility
+	playerAGI=board.agility*board.agility
+	#Health
+	playerHLT=100+board.health*board.health
+	#Stamina
+	playerSTA=100+board.stamina*board.stamina
+
+func enemy_atributos():
+	#Attack
+	enemyATT=enemyATT*enemyATT
+	#Defence
+	enemyDEF=enemyDEF*enemyDEF
+	#Agility
+	enemyAGI=enemyAGI*enemyAGI
+	#Health
+	enemyHLT=100+enemyHLT*enemyHLT
+	#Stamina
+	enemySTA=100+enemySTA*enemySTA
+
 
 func _ready():
 	randomize()
 	board.carregar_dados()
-	$TextureRect/Enemy.health = 100
-	$TextureRect/Player.health = 100
+	player_atributos()
+	enemy_atributos()
 	random = randi()%11+1
 	anim = character_animation()
 	enemy_animation()
+	$TextureRect/Enemy.health = enemyHLT
+	$TextureRect/Player.health = playerHLT
 	$TextureRect/Player.animation = "Idle_"+anim
 	$TextureRect/Enemy.animation = "Idle_"+enemy
 

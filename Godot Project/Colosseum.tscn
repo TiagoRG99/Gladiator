@@ -1262,7 +1262,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Colosseum" type="Control"]
+[node name="Colosseum" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1320,7 +1320,7 @@ position = Vector2( 931.387, 588.616 )
 scale = Vector2( 1.25, 1.25 )
 frames = SubResource( 1 )
 animation = "Idle_Troll_1"
-frame = 4
+frame = 1
 playing = true
 flip_h = true
 script = ExtResource( 522 )
