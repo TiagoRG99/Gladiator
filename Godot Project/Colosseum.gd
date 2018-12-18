@@ -16,6 +16,8 @@ func _on_menuButton_pressed():
 	startTurn()
 
 func _process(delta):
+	$TextureRect/LifePlayer/HPValue.text = str($TextureRect/Player.health)
+	$TextureRect/LifeEnemy/HPValue2.text = str($TextureRect/Enemy.health)
 	if $TextureRect/Enemy.health <= 0:
 		$TextureRect/Enemy.animation = "Die_"+enemy
 		$TextureRect/Enemy/Timer.start()
