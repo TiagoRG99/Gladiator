@@ -2,7 +2,6 @@ extends Control
 
 var board = load("res://Selectchar.gd").new()
 var board2 = load("res://Player.gd").new()
-
 var anim
 var enemy
 var enemyATT=0
@@ -16,6 +15,8 @@ var playerAGI=0
 var playerHLT=0
 var playerSTA=0
 var random
+var random2
+var damage
 
 func _on_menuButton_pressed():
 	#get_tree().change_scene("res://NewGameScreen.tscn")
@@ -38,7 +39,6 @@ func _process(delta):
 		$TextureRect/LifeEnemy.visible=false
 		$TextureRect/LifePlayer.visible=false
 
-
 func player_health_calc(healthCalc):
 	healthCalc=(((healthCalc)*100)/playerHLT)
 	return healthCalc
@@ -47,6 +47,12 @@ func enemy_health_calc(calcHealth):
 	calcHealth=  (((calcHealth)*100)/enemyHLT)
 	return calcHealth
 
+func damage(att,def,power):
+	random2 = randi()%11+1
+	damage = (((att-def)+power)+random2)
+	if (damage<0):
+		damage=((1/(-damage))*100)
+	return damage
 
 func player_atributos():
 	board.carregar_dados()
@@ -72,7 +78,6 @@ func enemy_atributos():
 	enemyHLT=100+enemyHLT*enemyHLT
 	#Stamina
 	enemySTA=100+enemySTA*enemySTA
-
 
 func _ready():
 	randomize()
@@ -212,14 +217,14 @@ func _on_Walk_Left_pressed():
 func _on_Power_Attack_pressed():
 	$TextureRect/Player.animation = "AttackPower_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
-		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 50
+		$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,40)
 	endTurn()
 	$Timer.start()
 
 func _on_Normal_Attack_pressed():
 	$TextureRect/Player.animation = "AttackNormal_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
-		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 20
+		$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,20)
 	endTurn()
 	$Timer.start()
 
