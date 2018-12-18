@@ -18,6 +18,7 @@ var playerSTA=0
 var random
 var random2
 var damage
+var agi_effect
 
 func _on_menuButton_pressed():
 	#get_tree().change_scene("res://NewGameScreen.tscn")
@@ -54,6 +55,7 @@ func enemy_health_calc(calcHealth):
 
 
 func damage(att,def,power):
+	randomize()
 	random2 = randi()%11+1
 	damage = (((att-def)+power)+random2)
 	if (damage<0):
@@ -224,6 +226,15 @@ func _on_Walk_Left_pressed():
 	endTurn()
 	$Timer.start()
 
+
+func agility_effect(attType,atributo):
+	randomize()
+	random = randi()%11+1
+	agi_effect= ((atributo/10)+(random/2))+attType
+	return agi_effect
+
+
+
 func _on_Power_Attack_pressed():
 	$TextureRect/Player.animation = "AttackPower_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
@@ -255,10 +266,16 @@ func _on_Enemy_animation_finished():
 		$TextureRect/Enemy.animation = "Idle_"+enemy
 
 func enemyTurn():
+	randomize()
+	random2=randi()%11+1
 	if $TextureRect/Enemy.animation != "Die_"+enemy:
 		if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x > 115:
-			$TextureRect/Enemy.animation = "Walk_"+enemy
-			$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 40
+			if random2==10:
+				$TextureRect/Enemy.animation = "Walk_"+enemy
+				$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x + 40
+			else:
+				$TextureRect/Enemy.animation = "Walk_"+enemy
+				$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 40
 		else :
 			randomize()
 			random = randi()%11+1
