@@ -16,6 +16,8 @@ var playerAGI=0
 var playerHLT=0
 var playerSTA=0
 var random
+var random2
+var damage
 
 func _on_menuButton_pressed():
 	#get_tree().change_scene("res://NewGameScreen.tscn")
@@ -48,6 +50,18 @@ func player_health_calc(healthCalc):
 func enemy_health_calc(calcHealth):
 	calcHealth=  (((calcHealth)*100)/enemyHLT)
 	return calcHealth
+
+
+
+func damage(att,def,power):
+	random2 = randi()%11+1
+	damage = (((att-def)+power)+random2)
+	if (damage<0):
+		damage=((1/(-damage))*100)
+	return damage
+
+
+
 
 func player_atributos():
 	board.carregar_dados()
@@ -213,14 +227,14 @@ func _on_Walk_Left_pressed():
 func _on_Power_Attack_pressed():
 	$TextureRect/Player.animation = "AttackPower_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
-		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 50
+		$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,40)
 	endTurn()
 	$Timer.start()
 
 func _on_Normal_Attack_pressed():
 	$TextureRect/Player.animation = "AttackNormal_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
-		$TextureRect/Enemy.health = $TextureRect/Enemy.health - 20
+		$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,20)
 	endTurn()
 	$Timer.start()
 
@@ -246,9 +260,16 @@ func enemyTurn():
 			$TextureRect/Enemy.animation = "Walk_"+enemy
 			$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 40
 		else :
-			$TextureRect/Enemy.animation = "AttackNormal_"+enemy
-			if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
-				$TextureRect/Player.health = $TextureRect/Player.health - 20
+			randomize()
+			random = randi()%11+1
+			if (random%2==0):
+				$TextureRect/Enemy.animation = "AttackNormal_"+enemy
+				if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
+					$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,20)
+			else:
+				$TextureRect/Enemy.animation = "AttackPower_"+enemy
+				if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
+					$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,35)
 		startTurn()
 
 func _return_newgame():
