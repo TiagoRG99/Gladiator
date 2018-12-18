@@ -22,6 +22,7 @@ func _on_menuButton_pressed():
 	startTurn()
 
 func _process(delta):
+	print ()
 	$TextureRect/LifePlayer/HPValue.text = str(int(player_health_calc($TextureRect/Player.health)))
 	$TextureRect/LifeEnemy/HPValue2.text = str(int(enemy_health_calc($TextureRect/Enemy.health)))
 	if $TextureRect/Enemy.health <= 0:
@@ -37,6 +38,7 @@ func _process(delta):
 		$TextureRect/Player.health = 1
 		$TextureRect/LifeEnemy.visible=false
 		$TextureRect/LifePlayer.visible=false
+		get_tree().quit()
 
 
 func player_health_calc(healthCalc):
@@ -46,7 +48,6 @@ func player_health_calc(healthCalc):
 func enemy_health_calc(calcHealth):
 	calcHealth=  (((calcHealth)*100)/enemyHLT)
 	return calcHealth
-
 
 func player_atributos():
 	board.carregar_dados()
@@ -302,7 +303,6 @@ func _on_ButtonBigStamina_pressed():
 		$TextureRect/Polygon2D.visible = false
 	else:
 		board.stamina_potion_big = board.stamina_potion_big - 1
-		$TextureRect/Player.health = playerHLT * 0.75
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
