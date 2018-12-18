@@ -28,6 +28,8 @@ func _process(delta):
 	print ()
 	$TextureRect/LifePlayer/HPValue.text = str(int(player_health_calc($TextureRect/Player.health)))
 	$TextureRect/LifeEnemy/HPValue2.text = str(int(enemy_health_calc($TextureRect/Enemy.health)))
+	$TextureRect/StaminaPlayer/StaminaValue.text = str (int(player_stamina_calc($TextureRect/Player.stamina)))
+	$TextureRect/StaminaEnemy/StaminaValue2.text = str (int(enemy_stamina_calc($TextureRect/Enemy.stamina)))
 	if $TextureRect/Enemy.health <= 0:
 		$TextureRect/Enemy.animation = "Die_"+enemy
 		$TextureRect/Enemy/Timer.start()
@@ -52,6 +54,13 @@ func enemy_health_calc(calcHealth):
 	calcHealth=  (((calcHealth)*100)/enemyHLT)
 	return calcHealth
 
+func player_stamina_calc(StaminaCalc):
+	StaminaCalc =  (((StaminaCalc)*100)/playerSTA)
+	return StaminaCalc
+	
+func enemy_stamina_calc(CalcStamina):
+	CalcStamina =  (((CalcStamina)*100)/enemySTA)
+	return CalcStamina
 
 
 func damage(att,def,power):
@@ -101,6 +110,8 @@ func _ready():
 	enemy_animation()
 	$TextureRect/Enemy.health = enemyHLT
 	$TextureRect/Player.health = playerHLT
+	$TextureRect/Player.stamina = playerSTA
+	$TextureRect/Enemy.stamina = enemySTA
 	$TextureRect/Player.animation = "Idle_"+anim
 	$TextureRect/Enemy.animation = "Idle_"+enemy
 
@@ -239,6 +250,11 @@ func _on_Power_Attack_pressed():
 	$TextureRect/Player.animation = "AttackPower_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
 		$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,40)
+		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 30
+	else :
+		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 30
+
+		
 	endTurn()
 	$Timer.start()
 
@@ -246,6 +262,9 @@ func _on_Normal_Attack_pressed():
 	$TextureRect/Player.animation = "AttackNormal_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
 		$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,20)
+		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 16
+	else :
+		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 16
 	endTurn()
 	$Timer.start()
 
@@ -283,10 +302,18 @@ func enemyTurn():
 				$TextureRect/Enemy.animation = "AttackNormal_"+enemy
 				if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
 					$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,20)
+					$TextureRect/Enemy.stamina = $TextureRect/Enemy.stamina - 16
+				else :
+					$TextureRect/Enemy.stamina = $TextureRect/Player.stamina - 16
+
 			else:
 				$TextureRect/Enemy.animation = "AttackPower_"+enemy
 				if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
 					$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,35)
+					$TextureRect/Enemy.stamina = $TextureRect/Enemy.stamina - 30
+				else :
+					$TextureRect/Enemy.stamina = $TextureRect/Player.stamina - 30
+		
 		startTurn()
 
 func _return_newgame():
