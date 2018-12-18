@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://NewGameScreen.gd" type="Script" id=1]
 [ext_resource path="res://Sprites PI/willy7[10137].png" type="Texture" id=2]
 [ext_resource path="res://Buttons/MenuButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Montserrat_48.tres" type="DynamicFont" id=4]
 
 [node name="NewGame" type="Control" index="0"]
 
@@ -49,6 +50,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 2 )
 stretch_mode = 0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColosseumButton" parent="CenterContainer/TextureRect" index="0" instance=ExtResource( 3 )]
 
@@ -63,7 +67,7 @@ scene_to_load = "res://Colosseum.tscn"
 [node name="PotionHouseButton3" parent="CenterContainer/TextureRect" index="1" instance=ExtResource( 3 )]
 
 margin_left = 161.0
-margin_top = 368.0
+margin_top = 360.0
 margin_right = -788.0
 margin_bottom = -126.0
 focus_mode = 0
@@ -76,6 +80,81 @@ margin_right = -304.0
 margin_bottom = -125.0
 focus_mode = 0
 _sections_unfolded = [ "Focus", "Rect", "Size Flags" ]
+
+[node name="Colosseum" type="Label" parent="CenterContainer/TextureRect" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 715.0
+margin_top = 29.0
+margin_right = 952.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "Colosseum"
+align = 1
+valign = 1
+percent_visible = -0.0909091
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_fonts", "custom_styles" ]
+
+[node name="PotionHouse" type="Label" parent="CenterContainer/TextureRect" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 280.0
+margin_right = 295.0
+margin_bottom = 330.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "PotionHouse"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="SellerHouse" type="Label" parent="CenterContainer/TextureRect" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 911.0
+margin_top = 242.0
+margin_right = 1168.0
+margin_bottom = 292.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "SellerHouse"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="pressed" from="CenterContainer/TextureRect/ColosseumButton" to="." method="_on_ColosseumButton_pressed"]
 
