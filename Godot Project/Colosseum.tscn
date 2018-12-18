@@ -1320,7 +1320,7 @@ position = Vector2( 931.387, 588.616 )
 scale = Vector2( 1.25, 1.25 )
 frames = SubResource( 1 )
 animation = "Idle_Troll_1"
-frame = 3
+frame = 4
 playing = true
 flip_h = true
 script = ExtResource( 522 )
@@ -1339,7 +1339,7 @@ editor/display_folded = true
 position = Vector2( 416.793, 606 )
 frames = SubResource( 2 )
 animation = "Idle_Elf_1"
-frame = 2
+frame = 1
 playing = true
 script = ExtResource( 523 )
 _sections_unfolded = [ "Transform" ]
@@ -2156,6 +2156,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="LifePlayer" type="Polygon2D" parent="TextureRect" index="6"]
 
+editor/display_folded = true
 position = Vector2( 9.60489, -20.908 )
 polygon = PoolVector2Array( 39.4269, 680.226, 30.2155, 695.207, 39.4269, 710.155, 119.89, 710.101, 131.408, 695.47, 119.893, 680.243 )
 uv = PoolVector2Array(  )
@@ -2225,6 +2226,7 @@ __meta__ = {
 
 [node name="StaminaPlayer" type="Polygon2D" parent="TextureRect" index="7"]
 
+editor/display_folded = true
 position = Vector2( -5.47362, -61.1017 )
 scale = Vector2( 1.38244, 1 )
 polygon = PoolVector2Array( 39.4269, 680.226, 25.7049, 696.262, 39.4269, 710.155, 119.89, 710.101, 134.02, 694.712, 119.893, 680.243 )
@@ -2347,76 +2349,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_colors/font_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="StaminaEnemy" type="Polygon2D" parent="TextureRect" index="9"]
-
-position = Vector2( 1089.62, -61.1017 )
-scale = Vector2( 1.38244, 1 )
-polygon = PoolVector2Array( 39.4269, 680.226, 25.7049, 696.262, 39.4269, 710.155, 119.89, 710.101, 134.02, 694.712, 119.893, 680.243 )
-uv = PoolVector2Array(  )
-color = Color( 0.435294, 0.411765, 0.411765, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-
-[node name="Stamina2" type="Label" parent="TextureRect/StaminaEnemy" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 38.0
-margin_top = 689.0
-margin_right = 89.0
-margin_bottom = 703.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Stamina"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="StaminaValue2" type="Label" parent="TextureRect/StaminaEnemy" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 96.0
-margin_top = 689.0
-margin_right = 120.0
-margin_bottom = 703.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
 percent_visible = 1.0
