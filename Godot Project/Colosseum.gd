@@ -9,6 +9,11 @@ var enemyDEF=0
 var enemyAGI=0
 var enemyHLT=0
 var enemySTA=0
+var playerATT=0
+var playerDEF=0
+var playerAGI=0
+var playerHLT=0
+var playerSTA=0
 var random
 
 func _on_menuButton_pressed():
@@ -32,19 +37,24 @@ func _process(delta):
 		$TextureRect/LifeEnemy.visible=false
 		$TextureRect/LifePlayer.visible=false
 
+func player_atributos():
+	board.carregar_dados()
+	#Attack
+	
 
 func _ready():
 	randomize()
+	board.carregar_dados()
 	$TextureRect/Enemy.health = 100
 	$TextureRect/Player.health = 100
 	random = randi()%11+1
-	print(random)
 	anim = character_animation()
 	enemy_animation()
 	$TextureRect/Player.animation = "Idle_"+anim
 	$TextureRect/Enemy.animation = "Idle_"+enemy
 
 func enemyChar(rnd):
+	board.carregar_dados()
 	if rnd==1:
 		if board.heroe_num==1 || board.heroe_num==10:
 			return "Knight_1"
@@ -72,6 +82,7 @@ func enemyChar(rnd):
 		return "Knight_3"
 
 func rand_atributos(num):
+	board.carregar_dados()
 	enemyATT=randi()%11+1
 	if enemyATT>num:
 		enemyATT=enemyATT-(10-num)
