@@ -71,7 +71,12 @@ func damage(att,def,power):
 		damage=((1/(-damage))*100)
 	return damage
 
-
+func verificaStamina():
+	if $TextureRect/Player.stamina <= 0:
+		$TextureRect/Player.stamina = 0 + 17
+		endTurn()
+	if $TextureRect/Player.stamina >= 100:
+		$TextureRect/Player.stamina = 101
 
 
 func player_atributos():
@@ -234,6 +239,7 @@ func _on_Walk_Left_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Player.position.x < 100:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x - 40
+	verificaStamina()
 	endTurn()
 	$Timer.start()
 
@@ -254,7 +260,7 @@ func _on_Power_Attack_pressed():
 	else :
 		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 30
 
-		
+	verificaStamina()
 	endTurn()
 	$Timer.start()
 
@@ -265,6 +271,7 @@ func _on_Normal_Attack_pressed():
 		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 16
 	else :
 		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 16
+	verificaStamina()
 	endTurn()
 	$Timer.start()
 
@@ -272,6 +279,7 @@ func _on_Walk_Right_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 35:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x + 40
+	verificaStamina()
 	endTurn()
 	
 	$Timer.start()
@@ -292,9 +300,11 @@ func enemyTurn():
 			if random2==10:
 				$TextureRect/Enemy.animation = "Walk_"+enemy
 				$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x + 40
+				$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
 			else:
 				$TextureRect/Enemy.animation = "Walk_"+enemy
 				$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 40
+				$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
 		else :
 			randomize()
 			random = randi()%11+1
@@ -303,17 +313,21 @@ func enemyTurn():
 				if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
 					$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,20)
 					$TextureRect/Enemy.stamina = $TextureRect/Enemy.stamina - 16
+					$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
 				else :
 					$TextureRect/Enemy.stamina = $TextureRect/Player.stamina - 16
+					$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
 
 			else:
 				$TextureRect/Enemy.animation = "AttackPower_"+enemy
 				if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
 					$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,35)
 					$TextureRect/Enemy.stamina = $TextureRect/Enemy.stamina - 30
+					$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
 				else :
 					$TextureRect/Enemy.stamina = $TextureRect/Player.stamina - 30
-		
+					$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
+		verificaStamina()
 		startTurn()
 
 func _return_newgame():
@@ -368,6 +382,7 @@ func _on_ButtonBigStamina_pressed():
 		$TextureRect/Polygon2D.visible = false
 	else:
 		board.stamina_potion_big = board.stamina_potion_big - 1
+		$TextureRect/Player.stamina = playerSTA * 0.75
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
@@ -378,6 +393,7 @@ func _on_ButtonMediumStamina_pressed():
 		$TextureRect/Polygon2D.visible = false
 	else:
 		board.stamina_potion_mid = board.stamina_potion_mid - 1
+		$TextureRect/Player.stamina = playerSTA * 0.5
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
@@ -388,6 +404,7 @@ func _on_ButtonSmallStamina_pressed():
 		$TextureRect/Polygon2D.visible = false
 	else:
 		board.stamina_potion_small = board.stamina_potion_small - 1
+		$TextureRect/Player.stamina = playerSTA * 0.25
 		board.salvar_dados()
 		$TextureRect/Polygon2D.visible = false
 
