@@ -114,6 +114,7 @@ func salvar_dados():
 	
 	if not erro :
 		arquivo.store_var(dados)
+		return 2
 	else:
 		print ("Erro ao salvar dados")
 	
@@ -186,6 +187,7 @@ func carregar_dados():
 		check = dados_salvos["global"]["check value"]
 		stage = dados_salvos["global"]["stage value"]
 		#print (dados_salvos)
+		return 4
 	else:
 		print ("Erro ao salvar dados")
 	
