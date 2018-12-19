@@ -41,9 +41,9 @@ func _process(delta):
 		$GameOver_Win.text= "VICTORY!"
 		$GameOver_Win.visible = true
 		board.gold+=gold_won(board.stage)
-		board.salvar_dados()
 		$TextureRect/Enemy.health = 1
 		board.stage+=1
+		board.salvar_dados()
 		$TextureRect/LifeEnemy.visible=false
 		$TextureRect/LifePlayer.visible=false
 		$TextureRect/StaminaPlayer.visible = false
@@ -112,6 +112,7 @@ func enemy_atributos():
 func _ready():
 	randomize()
 	board.carregar_dados()
+	print(board.stage)
 	player_atributos()
 	enemy_atributos()
 	random = randi()%11+1
@@ -199,36 +200,43 @@ func enemy_animation():
 		enemyAGI=4
 		enemySTA=4
 		enemyDEF=5
-		enemyHLT=105
+		enemyHLT=5
+		enemy_atributos()
 	elif board.stage == 9:
 		enemy = "Troll_2"
 		enemyATT=8
 		enemyAGI=7
 		enemySTA=7
 		enemyDEF=8
-		enemyHLT=108
+		enemyHLT=8
+		enemy_atributos()
 	elif board.stage == 14:
 		enemy = "Troll_3"
 		enemyATT=10
 		enemyAGI=10
 		enemySTA=10
 		enemyDEF=10
-		enemyHLT=110
+		enemyHLT=10
+		enemy_atributos()
 	elif board.stage == 13:
 		enemy = "Knight_2Dark"
 		enemyATT=10
 		enemyAGI=9
 		enemySTA=8
 		enemyDEF=8
-		enemyHLT=109
+		enemyHLT=9
+		enemy_atributos()
 	else:
 		enemy=enemyChar(random)
 		if board.stage<4:
 			rand_atributos(4)
+			enemy_atributos()
 		elif board.stage>4 && board.stage<9:
 			rand_atributos(7)
+			enemy_atributos()
 		elif board.stage>9 && board.stage<13:
 			rand_atributos(10)
+			enemy_atributos()
 
 func endTurn():
 	$TextureRect/TextureRect/Walk_Right.disabled = true
