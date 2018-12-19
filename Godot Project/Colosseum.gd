@@ -20,12 +20,17 @@ var random2
 var damage
 var agi_effect
 
-func _on_menuButton_pressed():
-	#get_tree().change_scene("res://NewGameScreen.tscn")
-	startTurn()
 
 func _process(delta):
-	print ()
+	if ($TextureRect/TextureRect/Walk_Left.disabled==false):
+		if Input.is_action_just_pressed("ui_left"):
+			_on_Walk_Left_pressed()
+		if Input.is_action_just_pressed("ui_right"):
+			_on_Walk_Right_pressed()
+		if Input.is_action_just_pressed("ui_down"):
+			_on_Normal_Attack_pressed()
+		if Input.is_action_just_pressed("ui_up"):
+			_on_Power_Attack_pressed()
 	$TextureRect/LifePlayer/HPValue.text = str(int(player_health_calc($TextureRect/Player.health)))
 	$TextureRect/LifeEnemy/HPValue2.text = str(int(enemy_health_calc($TextureRect/Enemy.health)))
 	$TextureRect/StaminaPlayer/StaminaValue.text = str (int(player_stamina_calc($TextureRect/Player.stamina)))
@@ -40,12 +45,11 @@ func _process(delta):
 	if $TextureRect/Player.health <= 0:
 		$TextureRect/Player.animation = "Die_"+anim
 		$TextureRect/Player/Timer.start()
+		$GameOver.visible=true
 		$TextureRect/Player.health = 1
 		$TextureRect/LifeEnemy.visible=false
 		$TextureRect/LifePlayer.visible=false
 		$TextureRect/StaminaPlayer.visible = false
-		get_tree().quit()
-
 
 func player_health_calc(healthCalc):
 	healthCalc=(((healthCalc)*100)/playerHLT)
@@ -74,7 +78,6 @@ func verificaStamina():
 	if $TextureRect/Player.stamina >= 100:
 		$TextureRect/Player.stamina = 101
 
-
 func player_atributos():
 	board.carregar_dados()
 	#Attack
@@ -99,7 +102,6 @@ func enemy_atributos():
 	enemyHLT=100+enemyHLT*enemyHLT
 	#Stamina
 	enemySTA=100+enemySTA*enemySTA
-
 
 func _ready():
 	randomize()
@@ -142,6 +144,10 @@ func enemyChar(rnd):
 		return "Knight_2"
 	elif rnd==10:
 		return "Knight_3"
+	elif rnd==0:
+		return "Knight_3Dark"
+	elif rnd==11:
+		return "Elf_2Dark"
 
 func rand_atributos(num):
 	board.carregar_dados()
@@ -213,9 +219,9 @@ func enemy_animation():
 		enemy=enemyChar(random)
 		if board.stage<4:
 			rand_atributos(4)
-		elif board.stage>4&&board.stage<9:
+		elif board.stage>4 && board.stage<9:
 			rand_atributos(7)
-		elif board.stage>9&&board.stage<13:
+		elif board.stage>9 && board.stage<13:
 			rand_atributos(10)
 
 func endTurn():
@@ -234,24 +240,29 @@ func _on_Walk_Left_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Player.position.x < 100:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x - 40
+		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 9
 	verificaStamina()
 	endTurn()
 	$Timer.start()
 
-
 func agility_effect(attType,atributo):
 	randomize()
-	random = randi()%11+1
+	random2 = randi()%11+1
 	agi_effect= ((atributo/10)+(random/2))+attType
 	return agi_effect
 
-
-
 func _on_Power_Attack_pressed():
+	randomize()
+	random = randi()%101+1
 	$TextureRect/Player.animation = "AttackPower_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
-		$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,40)
-		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 30
+		randomize()
+		random = randi()%101+1
+		if agility_effect(20,enemyAGI)<random:
+			$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,40)
+			$TextureRect/Player.stamina = $TextureRect/Player.stamina - 30
+		else:
+			$MissPower.visible=true
 	else :
 		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 30
 
@@ -262,8 +273,13 @@ func _on_Power_Attack_pressed():
 func _on_Normal_Attack_pressed():
 	$TextureRect/Player.animation = "AttackNormal_"+anim
 	if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
-		$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,20)
-		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 16
+		randomize()
+		random = randi()%101+1
+		if agility_effect(2,enemyAGI)<random:
+			$TextureRect/Enemy.health = $TextureRect/Enemy.health - damage(playerATT,enemyDEF,20)
+			$TextureRect/Player.stamina = $TextureRect/Player.stamina - 16
+		else:
+			$MissNormal.visible=true
 	else :
 		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 16
 	verificaStamina()
@@ -274,6 +290,7 @@ func _on_Walk_Right_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 35:
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x + 40
+		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 9
 	verificaStamina()
 	endTurn()
 	
@@ -288,6 +305,8 @@ func _on_Enemy_animation_finished():
 		$TextureRect/Enemy.animation = "Idle_"+enemy
 
 func enemyTurn():
+	$MissNormal.visible=false
+	$MissPower.visible=false
 	randomize()
 	random2=randi()%11+1
 	if $TextureRect/Enemy.animation != "Die_"+enemy:
@@ -295,29 +314,27 @@ func enemyTurn():
 			if random2==10:
 				$TextureRect/Enemy.animation = "Walk_"+enemy
 				$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x + 40
-				$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
 			else:
 				$TextureRect/Enemy.animation = "Walk_"+enemy
 				$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 40
-				$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
 		else :
 			randomize()
 			random = randi()%11+1
 			if (random%2==0):
 				$TextureRect/Enemy.animation = "AttackNormal_"+enemy
 				if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
-					$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,20)
-					$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
-				else :
-					$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
-
+					randomize()
+					random = randi()%101+1
+					if agility_effect(2,playerAGI)<random:
+						$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,20)
 			else:
 				$TextureRect/Enemy.animation = "AttackPower_"+enemy
 				if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 115:
-					$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,35)
-					$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
-				else :
-					$TextureRect/Player.stamina = $TextureRect/Player.stamina + 8
+					randomize()
+					random = randi()%101+1
+					if agility_effect(20,playerAGI)<random:
+						$TextureRect/Player.health = $TextureRect/Player.health - damage(enemyATT,playerDEF,35)
+		$TextureRect/Player.stamina = $TextureRect/Player.stamina + 7
 		verificaStamina()
 		startTurn()
 
