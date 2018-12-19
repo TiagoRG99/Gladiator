@@ -199,28 +199,28 @@ func enemy_animation():
 		enemyAGI=4
 		enemySTA=4
 		enemyDEF=5
-		enemyHLT=5
+		enemyHLT=105
 	elif board.stage == 9:
 		enemy = "Troll_2"
 		enemyATT=8
 		enemyAGI=7
 		enemySTA=7
 		enemyDEF=8
-		enemyHLT=8
+		enemyHLT=108
 	elif board.stage == 14:
 		enemy = "Troll_3"
 		enemyATT=10
 		enemyAGI=10
 		enemySTA=10
 		enemyDEF=10
-		enemyHLT=10
+		enemyHLT=110
 	elif board.stage == 13:
 		enemy = "Knight_2Dark"
 		enemyATT=10
 		enemyAGI=9
 		enemySTA=8
 		enemyDEF=8
-		enemyHLT=9
+		enemyHLT=109
 	else:
 		enemy=enemyChar(random)
 		if board.stage<4:

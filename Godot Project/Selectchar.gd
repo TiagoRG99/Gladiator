@@ -52,7 +52,7 @@ func _ready():
 	stamina_potion_mid = 0
 	stamina_potion_big = 0
 	stage = 0
-	gold = 5000
+	gold = 0
 	check = 0
 	salvar_dados()
 	
