@@ -2,7 +2,7 @@ extends Control
 
 var check
 var potion
-
+var total
 var board = load("res://Selectchar.gd").new()
 
 func _on_BackButton_pressed():
@@ -14,12 +14,29 @@ func _ready():
 	board.carregar_dados()
 
 func _process(delta):
+	total=board.attack+board.defence+board.agility+board.health+board.stamina
 	$Gold.text = str(board.gold)
 	$Attack/LevelATT.text = str(board.attack)
 	$Defence/LevelDEF.text = str(board.defence)
 	$Agility/LevelAGI.text = str(board.agility)
 	$Health/LevelHLT.text = str(board.health)
 	$Stamina/LevelSTA.text = str(board.stamina)
+	if board.heroe_num == 1:
+		if total==25:
+			board.heroe_num=10
+			board.salvar_dados()
+	elif board.heroe_num == 2:
+		if total==20:
+			board.heroe_num=20
+			board.salvar_dados()
+	elif board.heroe_num == 3:
+		if total==25:
+			board.heroe_num=30
+			board.salvar_dados()
+	elif board.heroe_num == 20:
+		if total==30:
+			board.heroe_num=200
+			board.salvar_dados()
 
 
 func dialog():

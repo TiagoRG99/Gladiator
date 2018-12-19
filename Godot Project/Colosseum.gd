@@ -19,6 +19,7 @@ var random
 var random2
 var damage
 var agi_effect
+var check=0
 
 
 func _process(delta):
@@ -37,6 +38,10 @@ func _process(delta):
 	if $TextureRect/Enemy.health <= 0:
 		$TextureRect/Enemy.animation = "Die_"+enemy
 		$TextureRect/Enemy/Timer.start()
+		$GameOver_Win.text= "VICTORY!"
+		$GameOver_Win.visible = true
+		board.gold+=gold_won(board.stage)
+		board.salvar_dados()
 		$TextureRect/Enemy.health = 1
 		board.stage+=1
 		$TextureRect/LifeEnemy.visible=false
@@ -45,7 +50,8 @@ func _process(delta):
 	if $TextureRect/Player.health <= 0:
 		$TextureRect/Player.animation = "Die_"+anim
 		$TextureRect/Player/Timer.start()
-		$GameOver.visible=true
+		$GameOver_Win.text= "GAME OVER!"
+		$GameOver_Win.visible = true
 		$TextureRect/Player.health = 1
 		$TextureRect/LifeEnemy.visible=false
 		$TextureRect/LifePlayer.visible=false
@@ -239,6 +245,9 @@ func startTurn():
 func _on_Walk_Left_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Player.position.x < 100:
+		check=2
+		$TextureRect/Player.position.y = $TextureRect/Player.position.y - 2
+		$Timer2.start()
 		$TextureRect/Player.position.x = $TextureRect/Player.position.x - 40
 		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 9
 	verificaStamina()
@@ -265,7 +274,7 @@ func _on_Power_Attack_pressed():
 			$MissPower.visible=true
 	else :
 		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 30
-
+	#$TextureRect/Player.position.x = $TextureRect/Player.position.x - 5
 	verificaStamina()
 	endTurn()
 	$Timer.start()
@@ -289,7 +298,9 @@ func _on_Normal_Attack_pressed():
 func _on_Walk_Right_pressed():
 	$TextureRect/Player.animation = "Walk_"+anim
 	if not $TextureRect/Enemy.position.x - $TextureRect/Player.position.x < 35:
-		$TextureRect/Player.position.x = $TextureRect/Player.position.x + 40
+		check=1
+		$TextureRect/Player.position.y = $TextureRect/Player.position.y - 2
+		$Timer2.start()
 		$TextureRect/Player.stamina = $TextureRect/Player.stamina - 9
 	verificaStamina()
 	endTurn()
@@ -311,11 +322,17 @@ func enemyTurn():
 	random2=randi()%11+1
 	if $TextureRect/Enemy.animation != "Die_"+enemy:
 		if $TextureRect/Enemy.position.x - $TextureRect/Player.position.x > 115:
-			if random2==10:
+			if random2==10 || random2==1:
 				$TextureRect/Enemy.animation = "Walk_"+enemy
+				check=3
+				$TextureRect/Enemy.position.y = $TextureRect/Enemy.position.y - 2
+				$Timer2.start()
 				$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x + 40
 			else:
 				$TextureRect/Enemy.animation = "Walk_"+enemy
+				check=4
+				$TextureRect/Enemy.position.y = $TextureRect/Enemy.position.y - 2
+				$Timer2.start()
 				$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 40
 		else :
 			randomize()
@@ -425,3 +442,59 @@ func _on_Inventory_pressed():
 	$TextureRect/Polygon2D/ButtonBigStamina/BigStaminaValue.text = str(board.stamina_potion_big)
 	$TextureRect/Polygon2D/ButtonMediumStamina/MediumStaminaValue.text = str(board.stamina_potion_mid)
 	$TextureRect/Polygon2D/ButtonSmallStamina/SmallStaminaValue.text = str(board.stamina_potion_small)
+
+func _on_Timer2_timeout():
+	if check==1:
+		$TextureRect/Player.position.x = $TextureRect/Player.position.x + 20
+		$Timer3.start()
+	elif check==2:
+		$TextureRect/Player.position.x = $TextureRect/Player.position.x - 20
+		$Timer3.start()
+	elif check==3:
+		$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x + 20
+		$Timer3.start()
+	elif check==4:
+		$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 20
+		$Timer3.start()
+
+func _on_Timer3_timeout():
+	if check==1:
+		$TextureRect/Player.position.x = $TextureRect/Player.position.x + 20
+	elif check==2:
+		$TextureRect/Player.position.x = $TextureRect/Player.position.x - 20
+	elif check==3:
+		$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x + 20
+	elif check==4:
+		$TextureRect/Enemy.position.x = $TextureRect/Enemy.position.x - 20
+
+func gold_won(stage):
+	if stage==0:
+		return 1000
+	elif stage==1:
+		return 1250
+	elif stage==2:
+		return 1500
+	elif stage==3:
+		return 1750
+	elif stage==4:
+		return 2500
+	elif stage==5:
+		return 2000
+	elif stage==6:
+		return 2500
+	elif stage==7:
+		return 3000
+	elif stage==8:
+		return 3500
+	elif stage==9:
+		return 5000
+	elif stage==10:
+		return 4000
+	elif stage==11:
+		return 5000
+	elif stage==12:
+		return 6000
+	elif stage==13:
+		return 7000
+	elif stage==14:
+		return 10000

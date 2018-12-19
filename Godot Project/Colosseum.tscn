@@ -619,7 +619,7 @@ animations = [ {
 "name": "Idle_Knight_1Dark",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ) ],
+"frames": [ ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 120 ) ],
 "loop": false,
 "name": "AttackPower_Amazon_2Dark",
 "speed": 20.0
@@ -634,7 +634,7 @@ animations = [ {
 "name": "Idle_Knight_1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ) ],
+"frames": [ ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 137 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ) ],
 "loop": false,
 "name": "AttackNormal_Elf_2Dark",
 "speed": 8.0
@@ -644,7 +644,7 @@ animations = [ {
 "name": "Idle_Troll_3",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ) ],
+"frames": [ ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 149 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ) ],
 "loop": false,
 "name": "AttackNormal_Elf_2",
 "speed": 8.0
@@ -659,7 +659,7 @@ animations = [ {
 "name": "Walk_Elf_2",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ) ],
+"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 166 ) ],
 "loop": false,
 "name": "AttackPower_Amazon_2",
 "speed": 20.0
@@ -674,7 +674,7 @@ animations = [ {
 "name": "Die_Knight_1",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 185 ) ],
+"frames": [ ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 185 ) ],
 "loop": false,
 "name": "AttackPower_Amazon_1",
 "speed": 20.0
@@ -714,12 +714,12 @@ animations = [ {
 "name": "Idle_Troll_2",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ) ],
+"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 166 ) ],
 "loop": false,
 "name": "AttackNormal_Amazon_2",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 231 ) ],
+"frames": [ ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 230 ), ExtResource( 231 ), ExtResource( 231 ) ],
 "loop": false,
 "name": "AttackPower_Elf_1Dark",
 "speed": 20.0
@@ -749,7 +749,7 @@ animations = [ {
 "name": "Hurt_Amazon_2",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ) ],
+"frames": [ ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 120 ) ],
 "loop": false,
 "name": "AttackNormal_Amazon_2Dark",
 "speed": 8.0
@@ -759,7 +759,7 @@ animations = [ {
 "name": "Idle_Amazon_2Dark",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "AttackPower_Elf_1",
 "speed": 20.0
@@ -789,7 +789,7 @@ animations = [ {
 "name": "Die_Elf_1Dark",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "AttackNormal_Elf_1",
 "speed": 8.0
@@ -799,7 +799,7 @@ animations = [ {
 "name": "Walk_Knight_2Dark",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 302 ), ExtResource( 303 ), ExtResource( 304 ), ExtResource( 305 ), ExtResource( 306 ) ],
+"frames": [ ExtResource( 302 ), ExtResource( 303 ), ExtResource( 304 ), ExtResource( 305 ), ExtResource( 305 ), ExtResource( 306 ), ExtResource( 306 ) ],
 "loop": false,
 "name": "AttackPower_Amazon_1Dark",
 "speed": 20.0
@@ -854,7 +854,7 @@ animations = [ {
 "name": "Hurt_Knight_3",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 185 ) ],
+"frames": [ ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 185 ) ],
 "loop": false,
 "name": "AttackNormal_Amazon_1",
 "speed": 8.0
@@ -884,7 +884,7 @@ animations = [ {
 "name": "Walk_Amazon_1Dark",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 302 ), ExtResource( 303 ), ExtResource( 304 ), ExtResource( 305 ), ExtResource( 306 ) ],
+"frames": [ ExtResource( 302 ), ExtResource( 303 ), ExtResource( 304 ), ExtResource( 305 ), ExtResource( 305 ), ExtResource( 306 ), ExtResource( 306 ) ],
 "loop": false,
 "name": "AttackNormal_Amazon_1Dark",
 "speed": 8.0
@@ -944,7 +944,7 @@ animations = [ {
 "name": "Walk_Knight_1",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ) ],
+"frames": [ ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 137 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ) ],
 "loop": false,
 "name": "AttackPower_Elf_2Dark",
 "speed": 20.0
@@ -1009,7 +1009,7 @@ animations = [ {
 "name": "AttackPower_Knight_2",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ) ],
+"frames": [ ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 149 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ) ],
 "loop": false,
 "name": "AttackPower_Elf_2",
 "speed": 20.0
@@ -1029,7 +1029,7 @@ animations = [ {
 "name": "Die_Knight_2",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 231 ) ],
+"frames": [ ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 230 ), ExtResource( 231 ), ExtResource( 231 ) ],
 "loop": false,
 "name": "AttackNormal_Elf_1Dark",
 "speed": 8.0
@@ -1089,7 +1089,7 @@ animations = [ {
 "name": "Idle_Knight_1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ) ],
+"frames": [ ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 149 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ) ],
 "loop": false,
 "name": "AttackNormal_Elf_2",
 "speed": 8.0
@@ -1114,7 +1114,7 @@ animations = [ {
 "name": "Idle_Elf_2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "AttackPower_Elf_1",
 "speed": 20.0
@@ -1124,7 +1124,7 @@ animations = [ {
 "name": "Die_Elf_1",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "AttackNormal_Elf_1",
 "speed": 10.0
@@ -1189,7 +1189,7 @@ animations = [ {
 "name": "AttackPower_Knight_2",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ) ],
+"frames": [ ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 149 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ) ],
 "loop": false,
 "name": "AttackPower_Elf_2",
 "speed": 15.0
@@ -1224,12 +1224,12 @@ animations = [ {
 "name": "Walk_WomanWarrior_2",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ) ],
+"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 166 ) ],
 "loop": false,
 "name": "AttackNormal_WomanWarrior_2",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ) ],
+"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 165 ) ],
 "loop": false,
 "name": "AttackPower_WomanWarrior_2",
 "speed": 20.0
@@ -1244,12 +1244,12 @@ animations = [ {
 "name": "Idle_WomanWarrior_1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 185 ) ],
+"frames": [ ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 185 ) ],
 "loop": false,
 "name": "AttackNormal_WomanWarrior_1",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 185 ) ],
+"frames": [ ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 185 ) ],
 "loop": false,
 "name": "AttackPower_WomanWarrior_1",
 "speed": 20.0
@@ -1301,11 +1301,11 @@ __meta__ = {
 
 [node name="Enemy" type="AnimatedSprite" parent="TextureRect" index="0"]
 
-position = Vector2( 931.387, 588.616 )
+position = Vector2( 931.387, 570.616 )
 scale = Vector2( 1.25, 1.25 )
 frames = SubResource( 1 )
 animation = "Idle_Troll_1"
-frame = 4
+frame = 6
 playing = true
 flip_h = true
 script = ExtResource( 520 )
@@ -1320,9 +1320,11 @@ autostart = false
 
 [node name="Player" type="AnimatedSprite" parent="TextureRect" index="1"]
 
+editor/display_folded = true
 position = Vector2( 416.793, 606 )
 frames = SubResource( 2 )
 animation = "Idle_Elf_1"
+frame = 1
 playing = true
 script = ExtResource( 521 )
 _sections_unfolded = [ "Transform" ]
@@ -2352,11 +2354,18 @@ autostart = false
 [node name="Timer2" type="Timer" parent="." index="2"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 0.1
 one_shot = true
 autostart = false
 
-[node name="MissPower" type="Label" parent="." index="3"]
+[node name="Timer3" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.13
+one_shot = true
+autostart = false
+
+[node name="MissPower" type="Label" parent="." index="4"]
 
 visible = false
 anchor_left = 0.0
@@ -2381,7 +2390,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="MissNormal" type="Label" parent="." index="4"]
+[node name="MissNormal" type="Label" parent="." index="5"]
 
 visible = false
 anchor_left = 0.0
@@ -2406,7 +2415,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="GameOver" type="Label" parent="." index="5"]
+[node name="GameOver_Win" type="Label" parent="." index="6"]
 
 visible = false
 anchor_left = 0.0
@@ -2464,5 +2473,9 @@ _sections_unfolded = [ "Visibility" ]
 [connection signal="pressed" from="TextureRect/Polygon2D/ExitInventory" to="." method="_on_ExitInventory_pressed"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+
+[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]
 
 
